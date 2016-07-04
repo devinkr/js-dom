@@ -103,7 +103,7 @@ I'm going to use jQuery methods to traverse the DOM and turn the text contained 
 
 `index.html`
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,6 +126,8 @@ I'm going to use jQuery methods to traverse the DOM and turn the text contained 
 </html>
 ```
 
+`script.js`
+
 ```js
 $(document).ready(function(){
 
@@ -140,9 +142,11 @@ $("ul").children().eq(0).css( "color", "red" );
 
 ### You Do: DOM traversal (20 minutes)
 
-Pair up.(2 minutes)
+Pair up.
 
-Write your own code that uses the following jQuery traversal methods. Implement .eq() with at least one of these. Adjust HTML accordingly.
+(2 minutes)
+
+Write your own code that uses the following jQuery traversal methods. Implement `.eq()` with at least one of these. Adjust HTML accordingly.
 
   - .parent()
   - .prev()
@@ -153,11 +157,13 @@ Write your own code that uses the following jQuery traversal methods. Implement 
 
 [ READ THE DOCUMENTATION ](https://api.jquery.com/category/traversing/tree-traversal/)
 
-Incorporate other jQuery methods like I did with .css(). [Check out this cheat sheet. ](https://oscarotero.com/jquery/)
+Incorporate other jQuery methods like I did with `.css()`[Check out this cheat sheet. ](https://oscarotero.com/jquery/)
 
 (15 minutes)
 
-Share! Slack me your code in the discussion channel and let's see how it works. (5 minutes)
+Share! Slack me your code in the discussion channel and let's see how it works.
+
+(5 minutes)
 
 ---
 
