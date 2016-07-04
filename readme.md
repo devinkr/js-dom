@@ -1,4 +1,4 @@
-# The DOM (Document Object Model)
+# The DOM (Document Object Model) & JQuery Basics
 
 ## Learning Objectives
 
@@ -49,25 +49,64 @@ html
 ```
 
 
-<!-- Let's look at the structure of [a page](https://github.com/ga-wdi-exercises/js-dom-quotes/blob/master/index.html) -->
+Let's look at the structure of [a page](https://github.com/ga-wdi-exercises/js-dom-quotes/blob/master/index.html)
 
-## Nodes (5 minutes)
-
-Everything in the HTML DOM is called a node. Elements are called element nodes, attributes are called attribute nodes, the text inside elements are called text nodes. The document itself is called a document node.
-
-You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the parent to the two div elements contained inside it, which are called child nodes. The two divs are also siblings to one another because they are on the same level in the tree structure.
-
-## Accessing the document (10 min)
-
-`document`
-  - `document.head`
-  - `document.body`
+## The Document Object (5 min)
 
 Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. You've already been introduced to *native objects* offered by Javascript such as strings, numbers and arrays. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment.
 
-### Element attributes
+## Nodes (5 minutes)
 
-`document.body`
+Everything in the HTML DOM is called a node. Elements are called element nodes, attributes are called attribute nodes, the text inside elements are called text nodes. There are comment nodes. The document itself is called a document node.
+
+You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the parent to the two div elements contained inside it, which are called child nodes. The two divs are also siblings to one another because they are on the same level in the tree structure.
+
+Let's look at another example:
+
+
+![](http://www.dege.ukfsn.org/dom/dom.gif)
+
+## JQuery Basics
+
+Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](hhttp://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
+
+JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on it's relationships to other elements--and DOM manipulation much more simple.  
+
+## We Do: Set up environment
+
+Make a directory in your sandbox with an `index.html` and a `script.js` file. Then link your `script.js` to your `index.html`.
+
+You can add jQuery to your site by either downloading the file from the jQuery website and hosting locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including Javascript files.
+
+Here, we'll use the Google CDN:
+
+```js
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+```
+
+Be sure to put this in before your custom js file so your file can use the library.
+
+You'll then include jQuery's Document Ready event in the `script.js` file. This is another way to ensure that your page loads before any jQuery is executed.
+
+```js
+
+$(document).ready(function(){
+
+   // jQuery goes here...
+
+});```
+
+### I Do:
+
+I'm going to use jQuery to traverse the DOM and turn the text in  
+
+
+
+
+
+
+
+
   - .children
   - .childNodes
   - .firstChild
@@ -75,6 +114,8 @@ Each web page loaded in the browser has its own `document` object. The `document
   - .nextSibling
   - .parentElement
   - .parentNode
+
+
 
 Methods are available on any element.
 
