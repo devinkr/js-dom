@@ -94,7 +94,8 @@ $(document).ready(function(){
 
    // jQuery goes here...
 
-});```
+});
+```
 
 ### I Do:
 
