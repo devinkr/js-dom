@@ -13,7 +13,7 @@
 We learned some things about JS objects. We learned that we can give objects key value pairs to program logic from real life objects. Turns out, we can actually treat elements in our HTML as objects in our JS programs.
 
 The [**D**ocument **O**bject **M**odel](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-is a programming interface for HTML. When you load HTML into the browser, it gets converted into a DOM structure. The [ visual representation](https://css-tricks.com/dom/) of this is the code you see when you open up Developer Tools in the browser.
+is a programming interface for HTML. When you load HTML into the browser, it gets converted into a DOM structure. The [ visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
 We're used to seeing our HTML displayed in the browser, but now we're going to think more about how it gets stored in memory.
 
@@ -53,7 +53,7 @@ Let's look at the structure of [a page](https://github.com/ga-wdi-exercises/js-d
 
 ## The Document Object (5 min)
 
-Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. You've already been introduced to *native objects* offered by Javascript such as strings, numbers and arrays. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment.
+Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment.
 
 ## Nodes (5 minutes)
 
@@ -70,7 +70,7 @@ Let's look at another example:
 
 Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](hhttp://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
 
-JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on it's relationships to other elements--and DOM manipulation much more simple.  
+JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
 ## We Do: Set up environment
 
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 ### I Do:
 
-I'm going to use jQuery methods to traverse the DOM and turn the text contained in the  first list item of an unordered list red. Methods are just functions that are properties of an object.
+I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
 
 `index.html`
 
@@ -148,11 +148,11 @@ Pair up.
 
 Write your own code that uses the following jQuery traversal methods. Implement `.eq()` with at least one of these. Adjust HTML accordingly.
 
-  - .parent()
-  - .prev()
-  - .siblings()
-  - .next()
-  - .find()
+  - `.parent()`
+  - `.prev()`
+  - `.siblings()`
+  - `.next()`
+  - `.find()`
 
 
 [ READ THE DOCUMENTATION ](https://api.jquery.com/category/traversing/tree-traversal/)
