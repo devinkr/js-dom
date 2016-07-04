@@ -15,6 +15,10 @@ We learned some things about JS objects. We learned that we can give objects key
 The [**D**ocument **O**bject **M**odel](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 is a programming interface for HTML. When you load HTML into the browser, it gets converted into a DOM structure. The [ visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
+[ Read this](https://css-tricks.com/dom/) to learn more about the DOM.
+
+*(3 minutes)*
+
 We're used to seeing our HTML displayed in the browser, but now we're going to think more about how it gets stored in memory.
 
 An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree:
@@ -72,7 +76,7 @@ Understanding the DOM is central to working in Javascript. Essentially, Javascri
 
 JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
-## We Do: Set up environment
+## We Do: Set up environment (5 minutes)
 
 Make a directory in your sandbox with an `index.html` and a `script.js` file. Then link your `script.js` to your `index.html`.
 
@@ -81,7 +85,7 @@ You can add jQuery to your site by either downloading the file from the jQuery w
 Here, we'll use the Google CDN:
 
 ```js
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 ```
 
 Be sure to put this in before your custom js file so your file can use the library.
@@ -97,7 +101,39 @@ $(document).ready(function(){
 });
 ```
 
-### I Do:
+### Selectors
+
+jQuery selectors enable you to find and manipulate HTML elements.
+
+- Getting an element by its Id
+```js
+$( "#someId" )
+```
+- Getting an element by its tag name
+```js
+$( "div" )
+```
+- Getting an element by its Class
+```js
+$( ".myClass" )
+```
+
+
+### Traversal Methods
+
+Once you've made an initial selection, you can dig deeper using traversal methods.
+
+-`.children()`:
+
+- `.parent()`
+- `.prev()`
+- `.siblings()`
+- `.next()`
+- `.find()`
+
+[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
+
+## I Do: Implementing
 
 I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
 
@@ -120,7 +156,7 @@ I'm going to use jQuery methods to traverse the DOM and turn the text contained 
   <li>black</li>
 </ul>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src ="script.js"></script>
 </body>
 </html>
@@ -140,68 +176,15 @@ $("ul").children().eq(0).css( "color", "red" );
 });
 ```
 
-### You Do: DOM traversal (20 minutes)
+## You Do: Selecting DOM elements (20 min)
 
-Pair up.
-
-(2 minutes)
-
-Write your own code that uses the following jQuery traversal methods. Implement `.eq()` with at least one of these. Adjust HTML accordingly.
-
-  - `.parent()`
-  - `.prev()`
-  - `.siblings()`
-  - `.next()`
-  - `.find()`
-
-
-[ READ THE DOCUMENTATION ](https://api.jquery.com/category/traversing/tree-traversal/)
-
-Incorporate other jQuery methods like I did with `.css()`[Check out this cheat sheet. ](https://oscarotero.com/jquery/)
-
-(15 minutes)
-
-Share! Slack me your code in the discussion channel and let's see how it works.
-
-(5 minutes)
-
----
-
-Methods are available on any element.
-
-### Methods for selecting elements
-
-- document.getElementById
-```js
-document.getElementById("someId")
-```
-- document.getElementsByTagName
-```js
-document.getElementByTagName("div")
-```
-- document.getElementsByClassName
-```js
-document.getElementByClassName("someClass")
-```
-- document.querySelector
-```js
-document.querySelector("div#bob h1")
-```
-- document.querySelectorAll
-> `querySelector` and `querySelectorAll` uses CSS selectors in order to select the elements. EX. `document.querySelector("div#bob h1")` This selector would grab the h1 that was a child of a div with id bob.
-
-One thing we can see is that some of these methods return a single DOM object where others return an array of elements.
-
-
-## You Do: Selecting DOM elements (15 min)
-
-Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the selecting-dom-elements branch.
+Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the jQuery branch.
 
 Test out grabbing DOM elements using the selectors above.
 
 ## Get 'n Set
 
-In programming we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
+In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
 Try accessing DOM elements leveraging the selector methods above.
 
@@ -245,7 +228,7 @@ Try accessing DOM elements leveraging the selector methods above.
 
 > Note: these are just some snippets, read the full [MDN DOM documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for more examples
 
-## You do: Logo hijack (15 min)M
+## You do: Logo hijack (15 min)
 
 1. Open up www.google.com in Chrome or Firefox, and open up the console.
 - find an image url for the yahoo logo
