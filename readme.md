@@ -99,24 +99,67 @@ $(document).ready(function(){
 
 ### I Do:
 
-I'm going to use jQuery to traverse the DOM and turn the text in  
+I'm going to use jQuery methods to traverse the DOM and turn the text contained in the  first list item of an unordered list red. Methods are just functions that are properties of an object.
+
+`index.html`
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<ul>
+  <li>red</li>
+  <li>black</li>
+  <li>black</li>
+  <li>black</li>
+  <li>black</li>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src ="script.js"></script>
+</body>
+</html>
+```
+
+```js
+$(document).ready(function(){
+
+// selected the ul tag
+// .children alone selects all child elements
+// using .eq reduces the set to a specific index
+// the .css method set the color of the text
+$("ul").children().eq(0).css( "color", "red" );
+
+});
+```
+
+### You Do: DOM traversal (20 minutes)
+
+Pair up.(2 minutes)
+
+Write your own code that uses the following jQuery traversal methods. Implement .eq() with at least one of these. Adjust HTML accordingly.
+
+  - .parent()
+  - .prev()
+  - .siblings()
+  - .next()
+  - .find()
 
 
+[ READ THE DOCUMENTATION ](https://api.jquery.com/category/traversing/tree-traversal/)
 
+Incorporate other jQuery methods like I did with .css(). [Check out this cheat sheet. ](https://oscarotero.com/jquery/)
 
+(15 minutes)
 
+Share! Slack me your code in the discussion channel and let's see how it works. (5 minutes)
 
-
-
-  - .children
-  - .childNodes
-  - .firstChild
-  - .lastChild
-  - .nextSibling
-  - .parentElement
-  - .parentNode
-
-
+---
 
 Methods are available on any element.
 
