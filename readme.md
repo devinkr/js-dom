@@ -63,7 +63,7 @@ You also can refer to nodes by their relationships to each other. For example, i
   - `document.head`
   - `document.body`
 
-Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. You've already been introduced to *native objects* offered by Javascript such as strings, numbers and arrays. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment. 
+Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. You've already been introduced to *native objects* offered by Javascript such as strings, numbers and arrays. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment.
 
 ### Element attributes
 
@@ -102,9 +102,9 @@ document.querySelector("div#bob h1")
 One thing we can see is that some of these methods return a single DOM object where others return an array of elements.
 
 
-## You Do: Selecting DOM elements (10 min)
+## You Do: Selecting DOM elements (15 min)
 
-Clone down [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes)
+Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the selecting-dom-elements branch.
 
 Test out grabbing DOM elements using the selectors above.
 
