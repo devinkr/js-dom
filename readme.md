@@ -141,14 +141,27 @@ $( "#someId" )
 var red = $( "#red" );
 console.log(red);
 ```
-- Getting an element by its tag name
+- Getting elements by tag name. Notice this will return all the tags of that name.
 ```js
-$( "div" )
+$( "li" )
 ```
-- Getting an element by its Class
+
+*Example*
+```js
+var liTags = $( "li" );
+console.log(liTags);
+```
+- Getting elements by Class. Again, this will return all elements with that class.
 ```js
 $( ".myClass" )
 ```
+*Example*
+```js
+var liClass = $( ".black" );
+console.log(liClass);
+```
+- You can also combine elements to
+
 [ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
 
 ### Traversal Methods
@@ -172,8 +185,9 @@ console.log(ulChildren);
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
 `.html()`
-  - get: no argument,returns everything between the tags of the specified element
-  - set: one argument that you want the html content to be. Note:This removes all of the elements children and replaces with whatever the new content is.
+- get or set the HTML contents
+- get: no argument, know that it returns the innerHTML of the first jQuery object
+- set: one argument that you want the html content to be
 
   *Get Example*
 
@@ -225,7 +239,11 @@ $( "ul" ).text("<li>blue</li>");
 
 ####You Do: Document Dive and examples (15 minutes)
 
-For the remaining two methods, find a partner, research how to get and set, and provide an example for each. Be prepared to share your findings with the class. For '.val()', create an input tag in your HTML for the method to work effectively.
+For the remaining two methods, find a partner, research, and provide an example of getting and setting for each. Be prepared to share your findings with the class. For '.val()', create an input tag in your HTML for the method to work effectively.
+
+```html
+<input type="text" class="search" placeholder="some text here ....">
+```
 
 - `.css()`
 [documentation](http://api.jquery.com/css/)
@@ -252,6 +270,16 @@ $( "ul" ).prepend( "<li>pink</li>" );
 });
 ```
 
+####You Do: Document Dive and examples (10 minutes)
+
+For the remaining two methods, find a partner, research and provide an example for each.
+
+- `.prependTo()`
+[documentation](http://api.jquery.com/prependTo/)
+- `.appendTo()`
+[documentation](http://api.jquery.com/appendTo/)
+
+
 ## Removing content
 
 `.remove()``
@@ -261,7 +289,12 @@ $( "ul" ).prepend( "<li>pink</li>" );
 $( "#red" ).remove();
 ```
 
-  See `.html()`
+`.empty()`
+- removes all the child elements of the jquery object it is called on
+
+```javascript
+$( "ul" ).empty();
+```
 
 
 ## I Do: Putting it all together (5 minutes)
