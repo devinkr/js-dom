@@ -82,7 +82,7 @@ After working with CSS, you'll find jQuery a friendly way to dive into interacti
 
 It's also important to note that jQuery IS Javascript so it's not accurate to say, if you're so inclined, that 'jQuery is better than Javascript.' You can distinguish the traditional style by calling it vanilla Javascript.
 
-## We Do: Set up environment (5 minutes)
+### Set up environment (5 minutes)
 
 Make a directory in your sandbox with an `index.html` and a `script.js` file. Then link your `script.js` to your `index.html`.
 
@@ -167,8 +167,6 @@ $( ".myClass" )
 var liClass = $( ".black" );
 console.log(liClass);
 ```
-- You can also combine elements to
-
 
 
 ### Traversal Methods (10 minutes)
@@ -189,7 +187,7 @@ console.log(ulChildren);
 var redParent = $( "#red" ).parent();
 console.log(redParent);
 ```
-- `.siblings()`
+ `.siblings()`
 
 *Example*
 ```js
@@ -198,7 +196,7 @@ console.log(redSiblings);
 ```
 This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
 
-- `.eq()`
+ `.eq()`
 
 *Example*
 ```js
@@ -215,7 +213,7 @@ Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow 
 
 Test out grabbing DOM elements using the selectors above.
 
-### Get/Modify (10 minutes)
+### Get/Modify (15 minutes)
 
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
@@ -279,6 +277,23 @@ For the last method, find a partner, research, and provide an example of getting
 - `.val()`
 [documentation](http://api.jquery.com/val/)
 
+<details>
+<summary>
+.val() example:
+</summary>
+```html
+<input type="text" value="name">
+```
+```javascript
+$("input").val("Nayana Davis");
+// set
+```
+```javascript
+var myName = $("input").val();
+console.log(myName)
+// get
+```
+</details>
 
 ### Adding content (5 minutes)
 
@@ -349,8 +364,51 @@ For the remaining two methods, find a partner, research and provide an example f
    `.addClass()`
    [documentation](http://api.jquery.com/addClass/)
 
+   <details>
+   <summary>
+   .addClass() example:
+   </summary>
+   ```html
+   <li class ="black blue">black</li>
+   ```
+   ```css
+   .blue {
+  color:blue;
+  background-color: yellow;
+  font-weight:bold;;
+  border-color: black;
+  border-style: solid;
+}
+   ```
+   ```javascript
+   $(".blue").removeClass('blue');
+   ```
+   </details>
+
    `.removeClass()`
    [documentation](http://api.jquery.com/removeClass/)
+
+   <details>
+   <summary>
+   .val() example:
+   </summary>
+   ```html
+   <link rel="stylesheet" href="style.css">
+   ```
+   ```css
+   .fancy {
+   color:yellow;
+   background-color: blue;
+   font-weight:bold;;
+   border-color: black;
+   border-style: dotted;
+   }
+   ```
+   ```javascript
+   $(".blue").removeClass('blue');
+   ```
+   </details>
+
 
 ## You do: Logo hijack (15 min)
 
