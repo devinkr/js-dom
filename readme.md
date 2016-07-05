@@ -152,6 +152,7 @@ console.log(red);
 ```js
 $( "li" )
 ```
+>Demo in console
 
 *Example*
 ```js
