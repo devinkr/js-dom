@@ -169,53 +169,51 @@ console.log(ulChildren);
 
 ## Get/Modify content
 
-- _element_`.innerHTML()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
-  - get or set the HTML contents **can also be used to add HTML elements**
-  - get: no argument, know that it returns everything between the tags of the specified element
+In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
+
+`.html()`
+  - get: no argument,returns everything between the tags of the specified element
+  - set: one argument that you want the html content to be. Note:This removes all of the elements children and replaces with whatever the new content is.
+
+  *Get Example*
 
   ```javascript
-  var currentContent = element.innerHTML
-  // currentContent contains all of the elements children
+  var getInner = $( "#red" ).html();
+  console.log(getInner);
   ```
 
-    - set: one argument that you want the html content to be
-
+  *Set Example*
   ```javascript
-  element.innerHTML = newContent
-  // removes all of the elements children and replaces with whatever newContent is
+  $( "ul" ).html("<li>blue</li>");
   ```
 
-- _element_`.textContent` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
-  - similar to innerHTML except that it will not turn markup into elements and will keep strings intact
+`.text()`
+  - similar to .html()except that it will not turn markup into elements and will keep strings intact
 
+  - get: returns the content of the selected element as a string, and store it in the variable `text`
+  - set: removes all of the elements children and replaces with whatever newContent is
+
+
+  *Get Example*
   ```javascript
-  var text = element.textContent;
-  // returns the content of the selected element as a string, and store it in the variable `text`
-  element.textContent = newContent;
-  // removes all of the elements children and replaces with whatever newContent is
-  ```
-
-- _element_`.style.<propertyName>` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
-  - used to set and modify CSS properties, where `<propertyName>` is the name of the desired CSS attribute to get or set
-
-  ```js
-  var currentValue = element.style.backgroundColor;
-  // will return what the current backgroundColor of the selected element, and store it in the variable `currentValue`
-
-  element.style.height = someNewValue;
-  // will set the height of the selected element to whatever someNewValue is
-  ```
-
-Add an input tag to the `index.html`:
-
-```html
-<input type="text" class="search" placeholder="some text here ....">
+  var getTextContent = $( "ul" ).text();
+  console.log(getTextContent);
+});
 ```
 
-- _element_`.value` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
-  - only works for input tags - gets current value in the input
+  *Set Example*
+  ```javascript
+  var setTextContent = $( "ul" ).text("<li>blue</li>");
+  console.log(setTextContent);
+});
+```
 
-> We need to be able to get information from users. Input tags are a great way to do that. But more importantly we need to be able to access those values so that our JS can act on it. Think about auto complete on search forms. As we type something into google, it starts giving us options. For every key stroke we make, the callback that is fired is probably using some form of `.value`. This will also be extremely important moving forward in week 7 with AJAX.
+####You Do: Document Dive and examples (15 minutes)
+
+For the remaining two methods, find a partner, research how to get and set, and provide an example for each. Be prepared to share your findings with the class. For .val(), create an input tag in your HTML for the method to work effectively. 
+
+`.css()`
+`.val()`
 
 ## Adding content
 
@@ -276,11 +274,7 @@ Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow 
 
 Test out grabbing DOM elements using the selectors above.
 
-## Get 'n Set
 
-In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
-
-Try accessing DOM elements leveraging the selector methods above.
 
 ## Altering DOM Elements (5 min)
 
