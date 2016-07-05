@@ -167,7 +167,7 @@ console.log(ulChildren);
 
 [ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
 
-## Get/Modify content
+## Get/Modify
 
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
@@ -188,7 +188,7 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```
 
 `.text()`
-  - similar to .html()except that it will not turn markup into elements and will keep strings intact
+  - similar to `.html()`except that it will not turn markup into elements and will keep strings intact
 
   - get: returns the content of the selected element as a string, and store it in the variable `text`
   - set: removes all of the elements children and replaces with whatever newContent is
@@ -196,58 +196,72 @@ In programming, we'll come across patterns of retrieving information and assigni
 
   *Get Example*
   ```javascript
-  var getTextContent = $( "ul" ).text();
-  console.log(getTextContent);
+  var getText = $( "ul" ).text();
+  console.log(getText);
 });
 ```
+*Set Example*
+```javascript
+$( "ul" ).text("<li>blue</li>");
+```
+
+
+`.attr()`
+- get: returns the value of an attribute for the first element in the set of matched elements
+- set: set the value of an element attribute
+
+  *Get Example*
+  ```javascript
+  var getAttr = $('html').attr('lang')
+  console.log(getAttr);
+  });
+  ```
 
   *Set Example*
   ```javascript
-  var setTextContent = $( "ul" ).text("<li>blue</li>");
-  console.log(setTextContent);
+  var setAttr = $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
 });
 ```
 
 ####You Do: Document Dive and examples (15 minutes)
 
-For the remaining two methods, find a partner, research how to get and set, and provide an example for each. Be prepared to share your findings with the class. For .val(), create an input tag in your HTML for the method to work effectively. 
+For the remaining two methods, find a partner, research how to get and set, and provide an example for each. Be prepared to share your findings with the class. For '.val()', create an input tag in your HTML for the method to work effectively.
 
-`.css()`
-`.val()`
+- `.css()`
+[documentation](http://api.jquery.com/css/)
+
+- `.val()`
+[documentation](http://api.jquery.com/val/)
+
 
 ## Adding content
 
-- `document.createElement(tagName)` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-  - creates the specified HTML tag
+`.append()`
+- adds newly created element to the end of a parent element, making it the last child
 
-  ```js
-  var element = document.createElement('div');
-  // will return a created div and store it in the variable element
-  ```
+```javascript
+$( "ul" ).append( "<li>blue</li>" );
+});
+```
 
-- _element_`.appendChild()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
-  - adds a node to the end of the lis of children of a specified parentNode
+`.prepend()`
+- adds newly created element to the start of a parent element, making it the first child
 
-  ```js
-  var child = element.appendChild(newChildElement);
-  // appends the newChildElement as a child of element, stores this in the variable child
-  ```
-
-- _element_`.insertBefore(newNode, referenceNode)` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
-  - inserts the specified element before the reference node as a child of the current element
-
-  ```js
-  var insertedNode = parentNode.insertBefore(newNode, referenceNode);
-  ```
-
-  > Think about how facebook statuses work. When we add a new status, does it go to the bottom of the list? or is it right at the top? Maybe they're using a prepend here ...
+```javascript
+$( "ul" ).prepend( "<li>pink</li>" );
+});
+```
 
 ## Removing content
 
-- _element_`.removeChild()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
+`.remove()``
+- removes element from DOM
 
-- _element_`.innerHTML = ''`
-  - can be used to replace all of the contents of an element with nothing (an empty string) - see above description for usage
+```javascript
+$( "#red" ).remove();
+```
+
+  See `.html()`
 
 
 ## I Do: Putting it all together (5 minutes)
@@ -275,47 +289,6 @@ Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow 
 Test out grabbing DOM elements using the selectors above.
 
 
-
-## Altering DOM Elements (5 min)
-
-- [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
-- .innerHTML
-  this is used as both a getter and setter method
-
-  Getter:
-  ```js
-  document.querySelector("someElement").innerHTML
-  ```
-
-  Setter:
-  ```js
-  document.querySelector("someElement").innerHTML = "the text that will be inserted for that element"
-  ```
-
-- .setAttribute(name, value);
-  Ex:
-  ```js
-  document.querySelectorAll("img").setAttribute("src", "www.someImageURL.com")
-  ```
-
-  > sets all images to have the source of `"www.someImageURL.com"`
-
-- .id
-  sets or gets an ID for a DOM element
-
-- .style
-  Getter:
-  ```js
-  document.querySelector("someElement").style.background
-  ```
-
-  Setter:
-  ```js
-  document.querySelector("someElement").style.background = "blue"
-  ```
-
-> Note: these are just some snippets, read the full [MDN DOM documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for more examples
-
 ## You do: Logo hijack (15 min)
 
 1. Open up www.google.com in Chrome or Firefox, and open up the console.
@@ -327,34 +300,5 @@ Test out grabbing DOM elements using the selectors above.
 - Modify the text of the button so that it says "Yahooo!" instead.
 
 Bonus: Add a new element between the image and the search textbox, telling the world that "Yahoo is the new Google".
-
-## Creating/Removing DOM Elements (1 min)
-
-- [document.createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-
-```js
-var newDiv = document.createElement("div")
-newDiv.innerHTML = "Whoa, this is created from JS!"
-```
-
-- [Node.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
-
-```js
-document.body.appendChild(newDiv)
-```
-- Node.removeChild
-
-## Exercises
-
-- [Take the Money and Run](https://github.com/ga-wdi-exercises/ttmar)
-- [color scheme switcher](https://github.com/ga-wdi-exercises/color-scheme-switcher)
-
-
-## Homework
-Finish [Take the Money and Run](https://github.com/ga-wdi-exercises/ttmar)
-
-
-## References
-- https://developer.mozilla.org/en-US/docs/Web/API/Event
 
 [![Build Status](https://travis-ci.org/ga-wdi-lessons/js-dom.svg?branch=master)](https://travis-ci.org/ga-wdi-lessons/js-dom)
