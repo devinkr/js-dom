@@ -280,7 +280,7 @@ For the last method, find a partner, research, and provide an example of getting
 
 <details>
 <summary>
-.val() example:
+`.val()` example:
 </summary>
 `html`
 ```html
@@ -370,7 +370,7 @@ For the remaining two methods, find a partner, research and provide an example f
 
    <details>
    <summary>
-   .addClass() example:
+   `.addClass()` example:
    </summary>
    `html`
    ```html
@@ -397,7 +397,7 @@ For the remaining two methods, find a partner, research and provide an example f
 
    <details>
    <summary>
-   .val() example:
+   `.removeClass()` example:
    </summary>
    `html`
    ```html
