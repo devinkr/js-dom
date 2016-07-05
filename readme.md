@@ -135,7 +135,7 @@ And here's how our `index.html` should look:
 ```
 
 
-### Selectors
+### Selectors (10 minutes)
 
 jQuery selectors enable you to find and manipulate HTML elements.
 
@@ -171,7 +171,7 @@ console.log(liClass);
 
 
 
-### Traversal Methods
+### Traversal Methods (10 minutes)
 
 Once you've made an initial selection, you can dig deeper using traversal methods.
 
@@ -206,6 +206,8 @@ var getRed = $( "li" ).eq(0);
 console.log(getRed);
 ```
 
+##Break (10 minutes)
+
 
 ## You Do: Selecting DOM elements (20 min)
 
@@ -213,7 +215,7 @@ Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow 
 
 Test out grabbing DOM elements using the selectors above.
 
-### Get/Modify
+### Get/Modify (10 minutes)
 
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
@@ -278,7 +280,7 @@ For the last method, find a partner, research, and provide an example of getting
 [documentation](http://api.jquery.com/val/)
 
 
-### Adding content
+### Adding content (5 minutes)
 
 `.append()`
 - adds newly created element to the end of a parent element, making it the last child
@@ -305,7 +307,7 @@ For the remaining two methods, find a partner, research and provide an example f
 [documentation](http://api.jquery.com/appendTo/)
 
 
-### Removing content
+### Removing content (5 minutes)
 
 `.remove()``
 - removes element from DOM
@@ -321,7 +323,7 @@ $( "#red" ).remove();
 $( "ul" ).empty();
 ```
 
-### Others
+### Others (5 minutes)
 
 `.hide()`
  - changes elements style to have `display:none`
