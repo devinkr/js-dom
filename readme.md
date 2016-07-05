@@ -167,6 +167,91 @@ console.log(ulChildren);
 
 [ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
 
+## Get/Modify content
+
+- _element_`.innerHTML()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+  - get or set the HTML contents **can also be used to add HTML elements**
+  - get: no argument, know that it returns everything between the tags of the specified element
+
+  ```javascript
+  var currentContent = element.innerHTML
+  // currentContent contains all of the elements children
+  ```
+
+    - set: one argument that you want the html content to be
+
+  ```javascript
+  element.innerHTML = newContent
+  // removes all of the elements children and replaces with whatever newContent is
+  ```
+
+- _element_`.textContent` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
+  - similar to innerHTML except that it will not turn markup into elements and will keep strings intact
+
+  ```javascript
+  var text = element.textContent;
+  // returns the content of the selected element as a string, and store it in the variable `text`
+  element.textContent = newContent;
+  // removes all of the elements children and replaces with whatever newContent is
+  ```
+
+- _element_`.style.<propertyName>` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
+  - used to set and modify CSS properties, where `<propertyName>` is the name of the desired CSS attribute to get or set
+
+  ```js
+  var currentValue = element.style.backgroundColor;
+  // will return what the current backgroundColor of the selected element, and store it in the variable `currentValue`
+
+  element.style.height = someNewValue;
+  // will set the height of the selected element to whatever someNewValue is
+  ```
+
+Add an input tag to the `index.html`:
+
+```html
+<input type="text" class="search" placeholder="some text here ....">
+```
+
+- _element_`.value` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
+  - only works for input tags - gets current value in the input
+
+> We need to be able to get information from users. Input tags are a great way to do that. But more importantly we need to be able to access those values so that our JS can act on it. Think about auto complete on search forms. As we type something into google, it starts giving us options. For every key stroke we make, the callback that is fired is probably using some form of `.value`. This will also be extremely important moving forward in week 7 with AJAX.
+
+## Adding content
+
+- `document.createElement(tagName)` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
+  - creates the specified HTML tag
+
+  ```js
+  var element = document.createElement('div');
+  // will return a created div and store it in the variable element
+  ```
+
+- _element_`.appendChild()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
+  - adds a node to the end of the lis of children of a specified parentNode
+
+  ```js
+  var child = element.appendChild(newChildElement);
+  // appends the newChildElement as a child of element, stores this in the variable child
+  ```
+
+- _element_`.insertBefore(newNode, referenceNode)` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
+  - inserts the specified element before the reference node as a child of the current element
+
+  ```js
+  var insertedNode = parentNode.insertBefore(newNode, referenceNode);
+  ```
+
+  > Think about how facebook statuses work. When we add a new status, does it go to the bottom of the list? or is it right at the top? Maybe they're using a prepend here ...
+
+## Removing content
+
+- _element_`.removeChild()` [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild)
+
+- _element_`.innerHTML = ''`
+  - can be used to replace all of the contents of an element with nothing (an empty string) - see above description for usage
+
+
 ## I Do: Putting it all together (5 minutes)
 
 I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
@@ -264,62 +349,6 @@ newDiv.innerHTML = "Whoa, this is created from JS!"
 document.body.appendChild(newDiv)
 ```
 - Node.removeChild
-
-## Break (5 min)
-
-## Events (10 min)
-Let's take a look at this [site](http://jessicahische.is/). We can click on one of these themes and the webpage seemingly completely changes!
-
-What is an event?
-http://eloquentjavascript.net/14_event.html
-
-Events are a way we can add behavior depending on something happening. Think back to cookie clicker. When we click the cookie, something happens.
-
-Lets write some html that contains a couple elements we can click on. Create an `index.html` and put in the following contents:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Click Me!</h1>
-  <a href="https://www.google.com">This is a link to google!</a>
-  <script src="script.js"></script>
-</body>
-</html>
-```
-
-We have an `h1` as well as an `a`. Let's add event listeners for clicking to both.
-
-### Event Listeners for clicking
-`addEventListener`
-```js
-var clickMe = document.querySelector("h1")
-clickMe.addEventListener("click", function(){
-  console.log("you clicked the h1!")
-})
-var anchor = document.querySelector("a")
-anchor.addEventListener("click", function(){
-  console.log("you clicked the anchor!")
-})
-```
-
-> The first argument for `addEventListener` is the event you are listening for. In this case, the `click` event. The second argument is the thing that should happen when the event occurs, otherwise known as a callback. There's much to learn about `events` and `callbacks`. So much so that we have devoted another entire class to it.. So more to follow!
-
-Hmm, if we click on the link, its still going to google. What gives? Turns out anchors have a default action when we click them. They go to the specified link. We need a way to ignore the default behavior. We can do this by leveraging the event object.
-
-```js
-var anchor = document.querySelector("a")
-anchor.addEventListener("click", function(evt){
-  evt.preventDefault()
-  console.log("you clicked the anchor!")
-})
-```
-
-> There's lots more about events that you'll learn in the next classes. For now, know that every event listener you add allows us the access the event object as an argument of the function callback.
 
 ## Exercises
 
