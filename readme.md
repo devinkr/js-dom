@@ -92,6 +92,8 @@ Be sure to put this in before your custom js file so your file can use the libra
 
 You'll then include jQuery's Document Ready event in the `script.js` file. This is another way to ensure that your page loads before any jQuery is executed.
 
+Here's what your `script.js` should look like to start:
+
 ```js
 
 $(document).ready(function(){
@@ -100,44 +102,7 @@ $(document).ready(function(){
 
 });
 ```
-
-### Selectors
-
-jQuery selectors enable you to find and manipulate HTML elements.
-
-- Getting an element by its Id
-```js
-$( "#someId" )
-```
-- Getting an element by its tag name
-```js
-$( "div" )
-```
-- Getting an element by its Class
-```js
-$( ".myClass" )
-```
-
-
-### Traversal Methods
-
-Once you've made an initial selection, you can dig deeper using traversal methods.
-
--`.children()`:
-
-- `.parent()`
-- `.prev()`
-- `.siblings()`
-- `.next()`
-- `.find()`
-
-[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
-
-## I Do: Implementing
-
-I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
-
-`index.html`
+And here's how our `index.html` should look:
 
 ```html
 <!DOCTYPE html>
@@ -149,11 +114,11 @@ I'm going to use jQuery methods to traverse the DOM and turn the text contained 
 <body>
 
 <ul>
-  <li>red</li>
-  <li>black</li>
-  <li>black</li>
-  <li>black</li>
-  <li>black</li>
+  <li id ="red">red</li>
+  <li class ="black">black</li>
+  <li class ="black">black</li>
+  <li class ="black">black</li>
+  <li class ="black">black</li>
 </ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -161,6 +126,50 @@ I'm going to use jQuery methods to traverse the DOM and turn the text contained 
 </body>
 </html>
 ```
+
+
+### Selectors
+
+jQuery selectors enable you to find and manipulate HTML elements.
+
+- Getting an element by its Id
+```js
+$( "#someId" )
+```
+*Example*
+```js
+var red = $( "#red" );
+console.log(red);
+```
+- Getting an element by its tag name
+```js
+$( "div" )
+```
+- Getting an element by its Class
+```js
+$( ".myClass" )
+```
+[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
+
+### Traversal Methods
+
+Once you've made an initial selection, you can dig deeper using traversal methods.
+
+`.children()`
+
+*Example*
+```js
+var ulChildren = $( "ul" ).children();
+console.log(ulChildren);
+```
+- `.parent()`
+- `.siblings()`
+
+[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
+
+## I Do: Putting it all together (5 minutes)
+
+I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
 
 `script.js`
 
