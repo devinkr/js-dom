@@ -7,6 +7,8 @@
 - Select and target DOM elements using a query selector
 - Create, read, update, and delete DOM elements
 - Change the attributes or content of a DOM element
+- Explain the benefits of jQuery
+- Explore jQuery methods for DOM manipulation and traversal
 
 ## Framing (5 min)
 
@@ -75,6 +77,8 @@ Let's look at another example:
 Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](hhttp://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
 
 JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
+
+After working with CSS, you'll find jQuery a friendly way to dive into interactive development because it also emphasizes the use of selectors.
 
 ## We Do: Set up environment (5 minutes)
 
@@ -180,7 +184,7 @@ console.log(ulChildren);
 
 [ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
 
-## Get/Modify
+### Get/Modify
 
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
@@ -252,7 +256,7 @@ For the remaining two methods, find a partner, research, and provide an example 
 [documentation](http://api.jquery.com/val/)
 
 
-## Adding content
+### Adding content
 
 `.append()`
 - adds newly created element to the end of a parent element, making it the last child
@@ -280,7 +284,7 @@ For the remaining two methods, find a partner, research and provide an example f
 [documentation](http://api.jquery.com/appendTo/)
 
 
-## Removing content
+### Removing content
 
 `.remove()``
 - removes element from DOM
@@ -296,24 +300,6 @@ $( "#red" ).remove();
 $( "ul" ).empty();
 ```
 
-
-## I Do: Putting it all together (5 minutes)
-
-I'm going to use jQuery methods to traverse the DOM and turn the text contained in the first list item of an unordered list red. Methods are just functions that are properties of an object.
-
-`script.js`
-
-```js
-$(document).ready(function(){
-
-// selected the ul tag
-// .children alone selects all child elements
-// using .eq reduces the set to a specific index
-// the .css method set the color of the text
-$("ul").children().eq(0).css( "color", "red" );
-
-});
-```
 
 ## You Do: Selecting DOM elements (20 min)
 
