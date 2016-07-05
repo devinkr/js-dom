@@ -10,7 +10,7 @@
 - Explain the benefits of jQuery
 - Explore jQuery methods for DOM manipulation and traversal
 
-## Framing (5 min)
+## Intro (5 minutes)
 
 We learned some things about JS objects. We learned that we can give objects key value pairs to program logic from real life objects. Turns out, we can actually treat elements in our HTML as objects in our JS programs.
 
@@ -72,13 +72,15 @@ Let's look at another example:
 
 ![](http://www.dege.ukfsn.org/dom/dom.gif)
 
-## JQuery Basics
+## JQuery Basics (5 minutes)
 
 Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](hhttp://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
 
 JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
-After working with CSS, you'll find jQuery a friendly way to dive into interactive development because it also emphasizes the use of selectors.
+After working with CSS, you'll find jQuery a friendly way to dive into interactive development because it also emphasizes the use of selecting elements so you can do stuff to them.
+
+It's also important to note that jQuery IS Javascript so it's not accurate to say, if you're so inclined, that 'jQuery is better than Javascript.' You can distinguish the traditional style by calling it vanilla Javascript.
 
 ## We Do: Set up environment (5 minutes)
 
@@ -94,12 +96,13 @@ Here, we'll use the Google CDN:
 
 Be sure to put this in before your custom js file so your file can use the library.
 
-You'll then include jQuery's Document Ready event in the `script.js` file. This is another way to ensure that your page loads before any jQuery is executed.
+You'll then include jQuery's Document Ready event in the `script.js` file. This is another way to ensure that your page loads before any jQuery is executed. Code contained inside the Document Ready will only run once jQuery detects that the DOM is "ready". It's best practice to include this in every jQuery script you write.
 
 Here's what your `script.js` should look like to start:
 
 ```js
 
+// below is the standard code for the document ready event.
 $(document).ready(function(){
 
    // jQuery goes here...
@@ -166,7 +169,7 @@ console.log(liClass);
 ```
 - You can also combine elements to
 
-[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
+
 
 ### Traversal Methods
 
@@ -179,10 +182,36 @@ Once you've made an initial selection, you can dig deeper using traversal method
 var ulChildren = $( "ul" ).children();
 console.log(ulChildren);
 ```
-- `.parent()`
+`.parent()`
+
+*Example*
+```js
+var redParent = $( "#red" ).parent();
+console.log(redParent);
+```
 - `.siblings()`
 
-[ Read about more here ](https://api.jquery.com/category/traversing/tree-traversal/)
+*Example*
+```js
+$( "#red" ).siblings().css("color","green");
+console.log(redSiblings);
+```
+This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
+
+- `.eq()`
+
+*Example*
+```js
+var getRed = $( "li" ).eq(0);
+console.log(getRed);
+```
+
+
+## You Do: Selecting DOM elements (20 min)
+
+Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the jQuery branch.
+
+Test out grabbing DOM elements using the selectors above.
 
 ### Get/Modify
 
@@ -216,12 +245,11 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```javascript
   var getText = $( "ul" ).text();
   console.log(getText);
-});
 ```
-*Set Example*
-```javascript
-$( "ul" ).text("<li>blue</li>");
-```
+  *Set Example*
+  ```javascript
+  $( "ul" ).text("<li>blue</li>");
+  ```
 
 
 `.attr()`
@@ -232,26 +260,20 @@ $( "ul" ).text("<li>blue</li>");
   ```javascript
   var getAttr = $('html').attr('lang')
   console.log(getAttr);
-  });
   ```
 
   *Set Example*
   ```javascript
   var setAttr = $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
-});
 ```
 
-####You Do: Document Dive and examples (15 minutes)
+####You Do: Document Dive and examples (10 minutes)
 
-For the remaining two methods, find a partner, research, and provide an example of getting and setting for each. Be prepared to share your findings with the class. For '.val()', create an input tag in your HTML for the method to work effectively.
+For the last method, find a partner, research, and provide an example of getting and setting. Be prepared to share your findings with the class. Create an input tag in your HTML for the `.val()` to work effectively.
 
 ```html
-<input type="text" class="search" placeholder="some text here ....">
+<input type="text" value="hello">
 ```
-
-- `.css()`
-[documentation](http://api.jquery.com/css/)
-
 - `.val()`
 [documentation](http://api.jquery.com/val/)
 
@@ -262,8 +284,8 @@ For the remaining two methods, find a partner, research, and provide an example 
 - adds newly created element to the end of a parent element, making it the last child
 
 ```javascript
-$( "ul" ).append( "<li>blue</li>" );
-});
+var blue = $( "<li>blue</li>" );
+$( "ul" ).append(blue);
 ```
 
 `.prepend()`
@@ -271,12 +293,11 @@ $( "ul" ).append( "<li>blue</li>" );
 
 ```javascript
 $( "ul" ).prepend( "<li>pink</li>" );
-});
 ```
 
 ####You Do: Document Dive and examples (10 minutes)
 
-For the remaining two methods, find a partner, research and provide an example for each.
+For the remaining two methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
 - `.prependTo()`
 [documentation](http://api.jquery.com/prependTo/)
@@ -300,13 +321,34 @@ $( "#red" ).remove();
 $( "ul" ).empty();
 ```
 
+### Others
 
-## You Do: Selecting DOM elements (20 min)
+`.hide()`
+ - changes elements style to have `display:none`
 
-Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the jQuery branch.
+ ```javascript
+ $( "#red" ).hide();
+ ```
+ - `.show()`
+   - changes a `display:none` to `display:block` or whatever it initially was
 
-Test out grabbing DOM elements using the selectors above.
+   ```html
+   <li id ="red" style ="display:none">red</li>
+   ```
 
+   ```javascript
+   $( "#red" ).show();
+   ```
+
+####You Do: Document Dive and examples (10 minutes)
+
+For the remaining two methods, find a partner, research and provide an example for each. Be prepared to share your answer.
+
+   `.addClass()`
+   [documentation](http://api.jquery.com/addClass/)
+
+   `.removeClass()`
+   [documentation](http://api.jquery.com/removeClass/)
 
 ## You do: Logo hijack (15 min)
 
