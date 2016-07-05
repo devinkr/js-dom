@@ -282,13 +282,16 @@ For the last method, find a partner, research, and provide an example of getting
 <summary>
 .val() example:
 </summary>
+`html`
 ```html
 <input type="text" value="name">
 ```
+`js`
 ```javascript
 $("input").val("Nayana Davis");
 // set
 ```
+`js`
 ```javascript
 var myName = $("input").val();
 console.log(myName)
@@ -369,9 +372,11 @@ For the remaining two methods, find a partner, research and provide an example f
    <summary>
    .addClass() example:
    </summary>
+   `html`
    ```html
    <li class ="black blue">black</li>
    ```
+   `html`
    ```css
    .blue {
   color:blue;
@@ -381,6 +386,7 @@ For the remaining two methods, find a partner, research and provide an example f
   border-style: solid;
 }
    ```
+   `js`
    ```javascript
    $(".blue").removeClass('blue');
    ```
@@ -393,9 +399,11 @@ For the remaining two methods, find a partner, research and provide an example f
    <summary>
    .val() example:
    </summary>
+   `html`
    ```html
    <link rel="stylesheet" href="style.css">
    ```
+   `css`
    ```css
    .fancy {
    color:yellow;
@@ -405,6 +413,7 @@ For the remaining two methods, find a partner, research and provide an example f
    border-style: dotted;
    }
    ```
+   `js`
    ```javascript
    $(".blue").removeClass('blue');
    ```
