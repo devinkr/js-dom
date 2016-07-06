@@ -566,4 +566,39 @@ For the remaining two methods, find a partner, research and provide an example f
 
 Bonus: Add a new element between the image and the search textbox, telling the world that "Yahoo is the new Google".
 
+## `.each`
+
+With jquery we might want to do something to each element. Say we have 5 paragraph tags in our html:
+
+```html
+<p>paragraph1</p>
+<p>paragraph2</p>
+<p>paragraph3</p>
+<p>paragraph4</p>
+<p>paragraph5</p>
+```
+
+Say we wanted to add a class to each paragraph. We can do something like this:
+
+```js
+$("p").addClass("pizza")
+```
+
+And this would go ahead and add the class of `pizza` to each of the paragraph tags. This is happening through something called implicit iteration in jQuery. Under the hood its looping through each paragraph tag and adding a class. What if we wanted to log the html to the console? We might try this:
+
+```js
+console.log($("p").html())
+```
+
+Hmm, that only gives us the first paragraph tags html. Whelp, we need a way to iterate over each of the paragraph tags. Enter `.each`:
+
+```js
+$("p").each(function(){
+  console.log($(this).html())
+})
+```
+
+Grab links - Exercise - You do
+Assuming a page is using standard anchors for links, write some javascript, using the `.each` method, that gets all the link url's in an array.
+
 [![Build Status](https://travis-ci.org/ga-wdi-lessons/js-dom.svg?branch=master)](https://travis-ci.org/ga-wdi-lessons/js-dom)
