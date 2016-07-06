@@ -148,6 +148,17 @@ $( "#someId" )
 var red = $( "#red" );
 console.log(red);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+document.getElementById("red");
+```
+</details>
+
 - Getting elements by tag name. Notice this will return all the tags of that name.
 ```js
 $( "li" )
@@ -159,6 +170,17 @@ $( "li" )
 var liTags = $( "li" );
 console.log(liTags);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+document.getElementsByTagName("LI");
+```
+</details>
+
 - Getting elements by Class. Again, this will return all elements with that class.
 ```js
 $( ".myClass" )
@@ -168,6 +190,17 @@ $( ".myClass" )
 var liClass = $( ".black" );
 console.log(liClass);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+document.getElementsByClassName("black");
+```
+</details>
+
 
 
 ### Traversal Methods (10 minutes)
@@ -181,6 +214,17 @@ Once you've made an initial selection, you can dig deeper using traversal method
 var ulChildren = $( "ul" ).children();
 console.log(ulChildren);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+ document.getElementById("red").children
+```
+</details>
+
 `.parent()`
 
 *Example*
@@ -188,6 +232,16 @@ console.log(ulChildren);
 var redParent = $( "#red" ).parent();
 console.log(redParent);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+document.getElementById("red").parentNode
+```
+</details>
  `.siblings()`
 
 *Example*
@@ -195,6 +249,7 @@ console.log(redParent);
 $( "#red" ).siblings().css("color","green");
 console.log(redSiblings);
 ```
+
 This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
 
  `.eq()`
@@ -204,6 +259,16 @@ This above example highlights a very cool feature from jQuery called method chai
 var getRed = $( "li" ).eq(0);
 console.log(getRed);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+Use []. ex: document.getElementById("myID").childNodes[2]
+```
+</details>
 
 ##Break (10 minutes)
 
@@ -234,7 +299,16 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```javascript
   $( "ul" ).html("<li>blue</li>");
   ```
+  <details>
+  <summary>
+  Vanilla Javascript syntax
+  </summary>
 
+  `js`
+  ```javascript
+  .innerHTML()
+  ```
+  </details>
 `.text()`
   - similar to `.html()`except that it will not turn markup into elements and will keep strings intact
 
@@ -251,7 +325,16 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```javascript
   $( "ul" ).text("<li>blue</li>");
   ```
+  <details>
+  <summary>
+  Vanilla Javascript syntax
+  </summary>
 
+  `js`
+  ```javascript
+  .textContent()
+  ```
+  </details>
 
 `.attr()`
 - get: returns the value of an attribute for the first element in the set of matched elements
@@ -267,6 +350,16 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```javascript
   var setAttr = $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+.setAttribute();
+```
+</details>
 
 ####You Do: Document Dive and examples (10 minutes)
 
@@ -299,6 +392,17 @@ console.log(myName)
 ```
 </details>
 
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+.value
+```
+</details>
+
 ### Adding content (5 minutes)
 
 `.append()`
@@ -308,6 +412,16 @@ console.log(myName)
 var blue = $( "<li>blue</li>" );
 $( "ul" ).append(blue);
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+.appendChild()
+```
+</details>
 
 `.prepend()`
 - adds newly created element to the start of a parent element, making it the first child
@@ -315,6 +429,16 @@ $( "ul" ).append(blue);
 ```javascript
 $( "ul" ).prepend( "<li>pink</li>" );
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+.insertBefore()
+```
+</details>
 
 ####You Do: Document Dive and examples (10 minutes)
 
@@ -334,6 +458,16 @@ For the remaining two methods, find a partner, research and provide an example f
 ```javascript
 $( "#red" ).remove();
 ```
+<details>
+<summary>
+Vanilla Javascript syntax
+</summary>
+
+`js`
+```javascript
+.removeChild()
+```
+</details>
 
 `.empty()`
 - removes all the child elements of the jquery object it is called on
@@ -376,7 +510,7 @@ For the remaining two methods, find a partner, research and provide an example f
    ```html
    <li class ="black blue">black</li>
    ```
-   `html`
+   `css`
    ```css
    .blue {
   color:blue;
