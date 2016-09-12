@@ -84,7 +84,9 @@ It's also important to note that jQuery IS Javascript so it's not accurate to sa
 
 ### Set up environment (5 minutes)
 
-Make a directory in your sandbox with an `index.html` and a `script.js` file. Then link your `script.js` to your `index.html`.
+```
+$ git clone https://github.com/ga-wdi-exercises/jquery-playground.git && cd jquery-playground && atom . && open index.html
+```
 
 You can add jQuery to your site by either downloading the file from the jQuery website and hosting locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including Javascript files.
 
@@ -95,45 +97,6 @@ Here, we'll use the Google CDN:
 ```
 
 Be sure to put this in before your custom js file so your file can use the library.
-
-You'll then include jQuery's Document Ready event in the `script.js` file. This is another way to ensure that your page loads before any jQuery is executed. Code contained inside the Document Ready will only run once jQuery detects that the DOM is "ready". It's best practice to include this in every jQuery script you write.
-
-Here's what your `script.js` should look like to start:
-
-```js
-
-// below is the standard code for the document ready event.
-$(document).ready(function(){
-
-   // jQuery goes here...
-
-});
-```
-And here's how our `index.html` should look:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-
-<ul>
-  <li id ="red">red</li>
-  <li class ="black">black</li>
-  <li class ="black">black</li>
-  <li class ="black">black</li>
-  <li class ="black">black</li>
-</ul>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src ="script.js"></script>
-</body>
-</html>
-```
-
 
 ### Selectors (10 minutes)
 
@@ -556,15 +519,15 @@ For the remaining two methods, find a partner, research and provide an example f
 
 ## You do: Logo hijack (15 min)
 
-1. Open up www.google.com in Chrome or Firefox, and open up the console.
-- find an image url for the yahoo logo
-- Store the url to the Yahoo logo in a variable.
-- Find the Google logo using JS and store it in a variable.
-- Modify the source of the logo IMG so that it's a Yahoo logo instead.
-- Find the Google search button and store it in a variable.
-- Modify the text of the button so that it says "Yahooo!" instead.
+1. Open up https://www.microsoft.com/en-us/ in Chrome or Firefox, and open up the console.
+1. find an image url for the apple logo
+1. Store the url to the apple logo in a variable.
+1. Find the Microsfot logo using JS and store it in a variable.
+1. Modify the source of the logo IMG so that it's an apple logo instead.
+1. Find the Microsoft search input and store it in a variable.
+1. Modify the placeholder of the input so that it says "Search Apple" instead.
 
-Bonus: Add a new element between the image and the search textbox, telling the world that "Yahoo is the new Google".
+Bonus: Add a new element between the image and the search textbox, telling the world that "Microsoft is the new Apple".
 
 ## `.each`
 
