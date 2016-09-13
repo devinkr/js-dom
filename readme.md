@@ -219,7 +219,7 @@ document.getElementById("red").parentNode
 ```
 </details>
 
- #### `.siblings()`
+#### `.siblings()`
 
 *Example*
 ```js
