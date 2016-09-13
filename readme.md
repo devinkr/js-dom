@@ -195,7 +195,7 @@ console.log(ulChildren);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
  document.getElementById("red").children
 ```
@@ -213,7 +213,7 @@ console.log(redParent);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 document.getElementById("red").parentNode
 ```
@@ -241,7 +241,7 @@ console.log(getRed);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 Use []. ex: document.getElementById("myID").childNodes[2]
 ```
@@ -279,7 +279,7 @@ In programming, we'll come across patterns of retrieving information and assigni
   Vanilla Javascript syntax
   </summary>
 
-  `js`
+
   ```javascript
   document.querySelector("ul").innerHTML = "<li>Blue</li>"
   ```
@@ -306,7 +306,7 @@ In programming, we'll come across patterns of retrieving information and assigni
   Vanilla Javascript syntax
   </summary>
 
-  `js`
+
   ```javascript
   document.querySelector("ul").textContent = "<li>Blue</li>"
   ```
@@ -332,7 +332,7 @@ In programming, we'll come across patterns of retrieving information and assigni
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .setAttribute();
 ```
@@ -356,12 +356,12 @@ For the last method, find a partner, research, and provide an example of getting
 ```html
 <input type="text" value="name">
 ```
-`js`
+
 ```javascript
 $("input").val("Nayana Davis");
 // set
 ```
-`js`
+
 ```javascript
 var myName = $("input").val();
 console.log(myName)
@@ -374,7 +374,7 @@ console.log(myName)
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .value
 ```
@@ -394,7 +394,7 @@ $( "ul" ).append(blue);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .appendChild()
 ```
@@ -411,7 +411,7 @@ $( "ul" ).prepend( "<li>pink</li>" );
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .insertBefore()
 ```
