@@ -221,7 +221,7 @@ document.getElementById("red").parentNode
 
 *Example*
 ```js
-$( "#red" ).siblings().css("color","green");
+var redSiblings = $( "#red" ).siblings().css("color","green");
 console.log(redSiblings);
 ```
 
