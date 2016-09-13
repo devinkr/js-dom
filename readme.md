@@ -74,7 +74,7 @@ Let's look at another example:
 
 ## JQuery Basics (5 minutes)
 
-Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](hhttp://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
+Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](http://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
 
 JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
@@ -83,6 +83,8 @@ After working with CSS, you'll find jQuery a friendly way to dive into interacti
 It's also important to note that jQuery IS Javascript so it's not accurate to say, if you're so inclined, that 'jQuery is better than Javascript.' You can distinguish the traditional style by calling it vanilla Javascript.
 
 ### Set up environment (5 minutes)
+
+A one liner!
 
 ```
 $ git clone https://github.com/ga-wdi-exercises/jquery-playground.git && cd jquery-playground && atom . && open index.html
@@ -96,7 +98,10 @@ Here, we'll use the Google CDN:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 ```
 
-Be sure to put this in before your custom js file so your file can use the library.
+#### Note
+
+- Load jquery before your own code
+- Load both just before the closing body tag
 
 ### Selectors (10 minutes)
 
@@ -140,7 +145,7 @@ Vanilla Javascript syntax
 
 `js`
 ```javascript
-document.getElementsByTagName("LI");
+document.querySelectorAll("li");
 ```
 </details>
 
@@ -160,9 +165,16 @@ Vanilla Javascript syntax
 
 `js`
 ```javascript
-document.getElementsByClassName("black");
+document.querySelectorAll(".black");
 ```
 </details>
+
+But also any valid CSS selector will work:
+
+```js
+var lastBlackLi = $(".black:last-of-type")
+console.log(lastBlackLi)
+```
 
 
 
@@ -238,9 +250,7 @@ Use []. ex: document.getElementById("myID").childNodes[2]
 
 ## You Do: Selecting DOM elements (20 min)
 
-Go to [this repo](https://github.com/ga-wdi-exercises/js-dom-quotes) and follow the instructions in the jQuery branch.
-
-Test out grabbing DOM elements using the selectors above.
+[Exercise Here](https://github.com/ga-wdi-exercises/js-dom-quotes/tree/jquery)
 
 ### Get/Modify (15 minutes)
 
@@ -269,7 +279,7 @@ In programming, we'll come across patterns of retrieving information and assigni
 
   `js`
   ```javascript
-  .innerHTML()
+  document.querySelector("ul").innerHTML = "<li>Blue</li>"
   ```
   </details>
 `.text()`
@@ -295,7 +305,7 @@ In programming, we'll come across patterns of retrieving information and assigni
 
   `js`
   ```javascript
-  .textContent()
+  document.querySelector("ul").textContent = "<li>Blue</li>"
   ```
   </details>
 
@@ -305,13 +315,13 @@ In programming, we'll come across patterns of retrieving information and assigni
 
   *Get Example*
   ```javascript
-  var getAttr = $('html').attr('lang')
-  console.log(getAttr);
+  var language = $('html').attr('lang')
+  console.log(language);
   ```
 
   *Set Example*
   ```javascript
-  var setAttr = $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
+  $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
 ```
 <details>
 <summary>
@@ -460,62 +470,16 @@ $( "ul" ).empty();
 
 ####You Do: Document Dive and examples (10 minutes)
 
-For the remaining two methods, find a partner, research and provide an example for each. Be prepared to share your answer.
+For the remaining three methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
    `.addClass()`
    [documentation](http://api.jquery.com/addClass/)
 
-   <details>
-   <summary>
-   `.addClass()` example:
-   </summary>
-   `html`
-   ```html
-   <li class ="black blue">black</li>
-   ```
-   `css`
-   ```css
-   .blue {
-  color:blue;
-  background-color: yellow;
-  font-weight:bold;;
-  border-color: black;
-  border-style: solid;
-}
-   ```
-   `js`
-   ```javascript
-   $(".blue").removeClass('blue');
-   ```
-   </details>
-
    `.removeClass()`
    [documentation](http://api.jquery.com/removeClass/)
 
-   <details>
-   <summary>
-   `.removeClass()` example:
-   </summary>
-   `html`
-   ```html
-   <link rel="stylesheet" href="style.css">
-   ```
-   `css`
-   ```css
-   .fancy {
-   color:yellow;
-   background-color: blue;
-   font-weight:bold;;
-   border-color: black;
-   border-style: dotted;
-   }
-   ```
-   `js`
-   ```javascript
-   $(".blue").removeClass('blue');
-   ```
-   </details>
-
+   `.toggleClass()`
+   [documentation](http://api.jquery.com/toggleClass/)
 
 ## You do: Logo hijack (15 min)
 
@@ -561,7 +525,8 @@ $("p").each(function(){
 })
 ```
 
-Grab links - Exercise - You do
-Assuming a page is using standard anchors for links, write some javascript, using the `.each` method, that gets all the link url's in an array.
+## You do TTMAR
 
-[![Build Status](https://travis-ci.org/ga-wdi-lessons/js-dom.svg?branch=master)](https://travis-ci.org/ga-wdi-lessons/js-dom)
+Try out [click events](http://api.jquery.com/on/#event-handler)!
+
+https://github.com/ga-wdi-exercises/ttmar
