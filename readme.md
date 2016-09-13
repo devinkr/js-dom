@@ -229,7 +229,7 @@ console.log(redSiblings);
 
 This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
 
- #### `.eq()`
+#### `.eq()`
 
 *Example*
 ```js
