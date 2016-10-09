@@ -107,7 +107,7 @@ Here, we'll use the Google CDN:
 
 jQuery selectors enable you to find and manipulate HTML elements.
 
-- Getting an element by its Id
+#### Getting an element by its Id
 ```js
 $( "#someId" )
 ```
@@ -121,13 +121,14 @@ console.log(red);
 Vanilla Javascript syntax
 </summary>
 
-`js`
 ```javascript
 document.getElementById("red");
 ```
 </details>
 
-- Getting elements by tag name. Notice this will return all the tags of that name.
+#### Getting elements by tag name.
+>Notice this will return all the tags of that name.
+
 ```js
 $( "li" )
 ```
@@ -143,13 +144,15 @@ console.log(liTags);
 Vanilla Javascript syntax
 </summary>
 
-`js`
 ```javascript
 document.querySelectorAll("li");
 ```
 </details>
 
-- Getting elements by Class. Again, this will return all elements with that class.
+#### Getting elements by Class.
+
+> Again, this will return all elements with that class.
+
 ```js
 $( ".myClass" )
 ```
@@ -163,7 +166,6 @@ console.log(liClass);
 Vanilla Javascript syntax
 </summary>
 
-`js`
 ```javascript
 document.querySelectorAll(".black");
 ```
@@ -177,12 +179,11 @@ console.log(lastBlackLi)
 ```
 
 
-
 ### Traversal Methods (10 minutes)
 
 Once you've made an initial selection, you can dig deeper using traversal methods.
 
-`.children()`
+#### `.children()`
 
 *Example*
 ```js
@@ -194,13 +195,13 @@ console.log(ulChildren);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
  document.getElementById("red").children
 ```
 </details>
 
-`.parent()`
+#### `.parent()`
 
 *Example*
 ```js
@@ -212,12 +213,13 @@ console.log(redParent);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 document.getElementById("red").parentNode
 ```
 </details>
- `.siblings()`
+
+#### `.siblings()`
 
 *Example*
 ```js
@@ -227,7 +229,7 @@ console.log(redSiblings);
 
 This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
 
- `.eq()`
+#### `.eq()`
 
 *Example*
 ```js
@@ -239,13 +241,13 @@ console.log(getRed);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 Use []. ex: document.getElementById("myID").childNodes[2]
 ```
 </details>
 
-##Break (10 minutes)
+## Break (10 minutes)
 
 
 ## You Do: Selecting DOM elements (20 min)
@@ -256,7 +258,7 @@ Use []. ex: document.getElementById("myID").childNodes[2]
 
 In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
 
-`.html()`
+#### `.html()`
 - get or set the HTML contents
 - get: no argument, know that it returns the innerHTML of the first jQuery object
 - set: one argument that you want the html content to be
@@ -277,12 +279,13 @@ In programming, we'll come across patterns of retrieving information and assigni
   Vanilla Javascript syntax
   </summary>
 
-  `js`
+
   ```javascript
   document.querySelector("ul").innerHTML = "<li>Blue</li>"
   ```
   </details>
-`.text()`
+
+#### `.text()`
   - similar to `.html()`except that it will not turn markup into elements and will keep strings intact
 
   - get: returns the content of the selected element as a string, and store it in the variable `text`
@@ -303,13 +306,13 @@ In programming, we'll come across patterns of retrieving information and assigni
   Vanilla Javascript syntax
   </summary>
 
-  `js`
+
   ```javascript
   document.querySelector("ul").textContent = "<li>Blue</li>"
   ```
   </details>
 
-`.attr()`
+#### `.attr()`
 - get: returns the value of an attribute for the first element in the set of matched elements
 - set: set the value of an element attribute
 
@@ -323,18 +326,19 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```javascript
   $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
 ```
+
 <details>
 <summary>
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .setAttribute();
 ```
 </details>
 
-####You Do: Document Dive and examples (10 minutes)
+#### You Do: Document Dive and examples (10 minutes)
 
 For the last method, find a partner, research, and provide an example of getting and setting. Be prepared to share your findings with the class. Create an input tag in your HTML for the `.val()` to work effectively.
 
@@ -352,12 +356,12 @@ For the last method, find a partner, research, and provide an example of getting
 ```html
 <input type="text" value="name">
 ```
-`js`
+
 ```javascript
 $("input").val("Nayana Davis");
 // set
 ```
-`js`
+
 ```javascript
 var myName = $("input").val();
 console.log(myName)
@@ -370,7 +374,7 @@ console.log(myName)
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .value
 ```
@@ -378,7 +382,7 @@ Vanilla Javascript syntax
 
 ### Adding content (5 minutes)
 
-`.append()`
+#### `.append()`
 - adds newly created element to the end of a parent element, making it the last child
 
 ```javascript
@@ -390,13 +394,13 @@ $( "ul" ).append(blue);
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .appendChild()
 ```
 </details>
 
-`.prepend()`
+#### `.prepend()`
 - adds newly created element to the start of a parent element, making it the first child
 
 ```javascript
@@ -407,13 +411,13 @@ $( "ul" ).prepend( "<li>pink</li>" );
 Vanilla Javascript syntax
 </summary>
 
-`js`
+
 ```javascript
 .insertBefore()
 ```
 </details>
 
-####You Do: Document Dive and examples (10 minutes)
+#### You Do: Document Dive and examples (10 minutes)
 
 For the remaining two methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
@@ -425,7 +429,7 @@ For the remaining two methods, find a partner, research and provide an example f
 
 ### Removing content (5 minutes)
 
-`.remove()``
+#### `.remove()`
 - removes element from DOM
 
 ```javascript
@@ -435,14 +439,12 @@ $( "#red" ).remove();
 <summary>
 Vanilla Javascript syntax
 </summary>
-
-`js`
 ```javascript
 .removeChild()
 ```
 </details>
 
-`.empty()`
+#### `.empty()`
 - removes all the child elements of the jquery object it is called on
 
 ```javascript
@@ -451,24 +453,25 @@ $( "ul" ).empty();
 
 ### Others (5 minutes)
 
-`.hide()`
- - changes elements style to have `display:none`
+#### `.hide()`
+changes elements style to have `display:none`
 
  ```javascript
  $( "#red" ).hide();
  ```
- - `.show()`
-   - changes a `display:none` to `display:block` or whatever it initially was
 
-   ```html
-   <li id ="red" style ="display:none">red</li>
-   ```
+#### `.show()`
+changes a `display:none` to `display:block` or whatever it initially was
 
-   ```javascript
-   $( "#red" ).show();
-   ```
+```html
+<li id ="red" style ="display:none">red</li>
+```
 
-####You Do: Document Dive and examples (10 minutes)
+```javascript
+$( "#red" ).show();
+```
+
+#### You Do: Document Dive and examples (10 minutes)
 
 For the remaining three methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
