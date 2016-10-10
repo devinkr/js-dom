@@ -3,8 +3,7 @@
 ## Learning Objectives
 
 - Explain what the DOM is and how it is structured
-- Select and target DOM elements using DOM methods
-- Select and target DOM elements using a query selector
+- Select and target DOM elements using jQuery selectors
 - Create, read, update, and delete DOM elements
 - Change the attributes or content of a DOM element
 - Explain the benefits of jQuery
