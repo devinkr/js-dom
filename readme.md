@@ -312,7 +312,7 @@ In programming, we'll come across patterns of retrieving information and assigni
   ```
   </details>
 
-#### You do - `.css()`
+#### `.css()` - You do
 - How do you get/set CSS properties on a jQuery object?
 - How do you set multiple CSS properties?
 
