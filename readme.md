@@ -223,7 +223,7 @@ document.getElementById("red").parentNode
 
 *Example*
 ```js
-var redSiblings = $( "#red" ).siblings().css("color","green");
+var redSiblings = $( "#red" ).siblings();
 console.log(redSiblings);
 ```
 
@@ -311,6 +311,10 @@ In programming, we'll come across patterns of retrieving information and assigni
   document.querySelector("ul").textContent = "<li>Blue</li>"
   ```
   </details>
+
+#### You do - `.css()`
+- How do you get/set CSS properties on a jQuery object?
+- How do you set multiple CSS properties?
 
 #### `.attr()`
 - get: returns the value of an attribute for the first element in the set of matched elements
