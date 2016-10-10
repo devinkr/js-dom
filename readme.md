@@ -92,11 +92,21 @@ $ git clone https://github.com/ga-wdi-exercises/jquery-playground.git && cd jque
 
 You can add jQuery to your site by either downloading the file from the jQuery website and hosting locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including Javascript files.
 
-Here, we'll use the Google CDN:
+Here, we'll use a CDN:
 
 ```js
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 ```
+
+We're going to add the following code to the top of every script file when using jquery:
+
+```js
+$(document).ready(function(){
+  console.log("hello world")
+})
+```
+
+> `$(document).ready()` is a way we can make sure all of our HTML is loaded first, before we execute any jQuery/JS code. It's leveraging events and callbacks(we'll learn about these in the next lesson). We write the three lines above to ensure we've properly accessed the jQuery library as well as our script file in our HTML so long as we see the "hello world" show up in the console.
 
 #### Note
 
