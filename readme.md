@@ -98,7 +98,7 @@ Here, we'll use a CDN:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 ```
 
-We're going to add the following code to the top of every script file when using jquery:
+We're going to add the following code to the top of the `script.js` file when using jquery:
 
 ```js
 $(document).ready(function(){
