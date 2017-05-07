@@ -241,7 +241,7 @@ console.log(getRed)
 
 Spend 20 minutes completing [this exercise](https://github.com/ga-wdi-exercises/js-dom-quotes/tree/jquery).
 
-### Get/Modify (10 minutes / 1:30)
+### Get/Set (10 minutes / 1:30)
 
 #### `.html()`
 
@@ -411,8 +411,8 @@ $("ul").prepend( "<li>pink</li>");
 
 Find a partner, research and provide an example for each of the below methods. Be prepared to share your answer.
 
-- `.prependTo()`[documentation](http://api.jquery.com/prependTo/)
-- `.appendTo()`[documentation](http://api.jquery.com/appendTo/)
+- `.prependTo()` ([documentation](http://api.jquery.com/prependTo/))
+- `.appendTo()` ([documentation](http://api.jquery.com/appendTo/))
 
 
 ### Removing Content (5 minutes / 2:05)
@@ -470,13 +470,13 @@ $("#red").show();
 
 For the remaining three methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
-- `.addClass()` [documentation](http://api.jquery.com/addClass/)
-- `.removeClass()` [documentation](http://api.jquery.com/removeClass/)
-- `.toggleClass()` [documentation](http://api.jquery.com/toggleClass/)
+- `.addClass()` ([documentation](http://api.jquery.com/addClass/))
+- `.removeClass()` ([documentation](http://api.jquery.com/removeClass/))
+- `.toggleClass()` ([documentation](http://api.jquery.com/toggleClass/))
 
 ## You do: Logo Hijack (15 minutes / 2:35)
 
-1. Open up https://www.microsoft.com/en-us/ in Chrome or Firefox, and open up the console
+1. Open up the [Microsoft website](https://www.microsoft.com/en-us/) in Chrome or Firefox, and open up the console
 2. Find an image url for the apple logo
 3. Store the url to the apple logo in a variable
 4. Find the Microsoft logo using Javascript and store it in a variable
