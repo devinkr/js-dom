@@ -1,4 +1,4 @@
-# The DOM (Document Object Model) & JQuery Basics
+# The DOM (Document Object Model) & jQuery Basics
 
 ## Learning Objectives
 
@@ -9,26 +9,18 @@
 - Explain the benefits of jQuery
 - Explore jQuery methods for DOM manipulation and traversal
 
-## Intro (5 minutes)
+## Framing (5 minutes / 0:05)
 
-We learned some things about JS objects. We learned that we can give objects key value pairs to program logic from real life objects. Turns out, we can actually treat elements in our HTML as objects in our JS programs.
+In the Objects & Functions lesson you learned about objects as data structures and how we can use them to store data and methods. Today we will learn about how Javascript uses objects to represent what you see in the browser.
 
-The [**D**ocument **O**bject **M**odel](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-is a programming interface for HTML. When you load HTML into the browser, it gets converted into a DOM structure. The [ visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
+The **[Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)**
+is a programming interface for HTML. When you load HTML into the browser, it gets converted into an object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
-[ Read this](https://css-tricks.com/dom/) to learn more about the DOM.
-
-*(3 minutes)*
-
-We're used to seeing our HTML displayed in the browser, but now we're going to think more about how it gets stored in memory.
-
-An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree:
-
-Like this:
+An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
 
 ![](http://www.tuxradar.com/files/LXF118.tut_grease.diagram.png)
 
-Or this:
+Or this...
 
 ```
 html
@@ -53,49 +45,50 @@ html
     └── footer
 ```
 
-
-## The Document Object (5 min)
+## The Document Object (5 minutes / 0:10)
 
 Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. The document is an example of a *host object*--that is, an object provided to Javascript by the browser environment.
 
-## Nodes (5 minutes)
+## Nodes (5 minutes / 0:15)
 
-Everything in the HTML DOM is called a node. Elements are called element nodes, attributes are called attribute nodes, the text inside elements are called text nodes. There are comment nodes. The document itself is called a document node.
+<!-- AM: Is this section necessary? -->
+
+Everything in the HTML DOM is a "node". Elements are called "element nodes," attributes are called "attribute nodes," the text inside elements are called "text nodes." There are comment nodes. The document itself is called a document node.
 
 You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the parent to the two div elements contained inside it, which are called child nodes. The two divs are also siblings to one another because they are on the same level in the tree structure.
 
-Let's look at another example:
-
+Let's look at another example...
 
 ![](http://www.dege.ukfsn.org/dom/dom.gif)
 
-## JQuery Basics (5 minutes)
+## jQuery Basics (5 minutes / 0:20)
 
-Understanding the DOM is central to working in Javascript. Essentially, Javascript uses the DOM to create dynamic HTML.[ This includes](http://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
+Understanding the DOM is central to working in Javascript. Javascript uses the DOM to create dynamic HTML. [This includes](http://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
 
-JQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on its relationships to other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
+jQuery is a Javascript library that is intended to make it easier to use Javascript on your website. It's known as the "write less, do more" library. One of its main features is that it makes DOM traversal--that is, finding HTML elements based on their relationships with other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
-After working with CSS, you'll find jQuery a friendly way to dive into interactive development because it also emphasizes the use of selecting elements so you can do stuff to them.
+After working with CSS, you'll find jQuery to be a friendly way to dive into interactive development because it also emphasizes the use of selecting elements so you can do stuff to them.
 
-It's also important to note that jQuery IS Javascript so it's not accurate to say, if you're so inclined, that 'jQuery is better than Javascript.' You can distinguish the traditional style by calling it vanilla Javascript.
+It's important to note that jQuery is Javascript. Every jQuery method is, under-the-hood, executing Javascript code. You can see this by looking through the [jQuery source code](https://github.com/jquery/jquery/tree/master/src).
 
-### Set up environment (5 minutes)
+### Set Up Environment (5 minutes / 0:25)
 
-A one liner!
-
+```bash
+$ git clone https://github.com/ga-wdi-exercises/jquery-playground.git
+$ cd jquery-playground
+$ atom .
+$ open index.html
 ```
-$ git clone https://github.com/ga-wdi-exercises/jquery-playground.git && cd jquery-playground && atom . && open index.html
-```
 
-You can add jQuery to your site by either downloading the file from the jQuery website and hosting locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including Javascript files.
+You can add jQuery to your site by either [downloading it from the jQuery website](https://jquery.com/download/) and hosting it locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including Javascript files.
 
-Here, we'll use a CDN:
+Today, we'll use a CDN...
 
 ```js
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 ```
 
-We're going to add the following code to the top of the `script.js` file when using jquery:
+We're going to add the following code to the top of the `script.js` file when using jQuery...
 
 ```js
 $(document).ready(function(){
@@ -103,413 +96,401 @@ $(document).ready(function(){
 })
 ```
 
-> `$(document).ready()` is a way we can make sure all of our HTML is loaded first, before we execute any jQuery/JS code. It's leveraging events and callbacks(we'll learn about these in the next lesson). We write the three lines above to ensure we've properly accessed the jQuery library as well as our script file in our HTML so long as we see the "hello world" show up in the console.
+> Everything placed inside the `$(document).ready()` method will not be processed until all the HTML has been loaded. In this case, that code is `console.log("hello world")`.
 
-#### Note
-
-- Load jquery before your own code
-- Load both just before the closing body tag
-
-### Selectors (10 minutes)
+### Selectors (10 minutes / 0:30)
 
 jQuery selectors enable you to find and manipulate HTML elements.
 
-#### Getting an element by its Id
-```js
-$( "#someId" )
-```
-*Example*
-```js
-var red = $( "#red" );
-console.log(red);
-```
-<details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+#### Get element by ID
 
-```javascript
-document.getElementById("red");
+```js
+$("#someId")
 ```
+
+```js
+var red = $("#red")
+console.log(red)
+```
+
+<details>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
+
+  ```js
+  document.getElementById("red")
+  ```
+
 </details>
 
-#### Getting elements by tag name.
->Notice this will return all the tags of that name.
+#### Get elements by tag name
 
 ```js
-$( "li" )
+$("li")
 ```
->Demo in console
 
-*Example*
+> This will return all the tags of that name.
+
 ```js
-var liTags = $( "li" );
-console.log(liTags);
+var liTags = $("li")
+console.log(liTags)
 ```
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
-```javascript
-document.querySelectorAll("li");
-```
+  ```js
+  document.querySelectorAll("li")
+  ```
+
 </details>
 
-#### Getting elements by Class.
-
-> Again, this will return all elements with that class.
+#### Get elements by class
 
 ```js
-$( ".myClass" )
+$(".myClass")
 ```
-*Example*
+
+> This will return all elements with that class.
+
 ```js
-var liClass = $( ".black" );
-console.log(liClass);
+var liClass = $(".black")
+console.log(liClass)
 ```
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
-```javascript
-document.querySelectorAll(".black");
-```
+  ```js
+  document.querySelectorAll(".black")
+  ```
+
 </details>
 
-But also any valid CSS selector will work:
+#### All valid CSS selectors and pseudo-selectors work
 
 ```js
 var lastBlackLi = $(".black:last-of-type")
 console.log(lastBlackLi)
 ```
 
-
-### Traversal Methods (10 minutes)
+### Traversal Methods (10 minutes / 0:40)
 
 Once you've made an initial selection, you can dig deeper using traversal methods.
 
 #### `.children()`
 
-*Example*
 ```js
-var ulChildren = $( "ul" ).children();
-console.log(ulChildren);
+var ulChildren = $("ul").children()
+console.log(ulChildren)
 ```
+
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
-
-```javascript
- document.getElementById("red").children
-```
+  ```js
+  document.getElementById("red").children
+  ```
 </details>
 
 #### `.parent()`
 
-*Example*
 ```js
-var redParent = $( "#red" ).parent();
-console.log(redParent);
+var redParent = $("#red").parent()
+console.log(redParent)
 ```
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
+  ```js
+  document.getElementById("red").parentNode
+  ```
 
-```javascript
-document.getElementById("red").parentNode
-```
 </details>
 
 #### `.siblings()`
 
-*Example*
 ```js
-var redSiblings = $( "#red" ).siblings();
-console.log(redSiblings);
+var redSiblings = $("#red").siblings()
+console.log(redSiblings)
 ```
 
-This above example highlights a very cool feature from jQuery called method chaining. Essentially, this allows us to perform multiple methods on the same set of elements in a single line.
+<!-- AM: Which example? Don't see any method chaining with `.siblings()`... -->
+
+This above example highlights a very cool feature from jQuery called method chaining. This allows us to perform multiple methods on the same set of elements in a single line.
 
 #### `.eq()`
 
-*Example*
 ```js
-var getRed = $( "li" ).eq(0);
-console.log(getRed);
+var getRed = $("li").eq(0)
+console.log(getRed)
 ```
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
+  ```js
+  document.getElementById("myID").childNodes[2]
+  ```
 
-```javascript
-Use []. ex: document.getElementById("myID").childNodes[2]
-```
+  > This implementation uses square brackets to access a child node within a collection.
+
 </details>
 
-## Break (10 minutes)
+## Break (10 minutes / 0:50)
 
+## You Do: Selecting DOM elements (30 minutes / 1:20)
 
-## You Do: Selecting DOM elements (20 min)
+> 20 minutes exercise. 10 minutes review.
 
-[Exercise Here](https://github.com/ga-wdi-exercises/js-dom-quotes/tree/jquery)
+Spend 20 minutes completing [this exercise](https://github.com/ga-wdi-exercises/js-dom-quotes/tree/jquery).
 
-### Get/Modify (15 minutes)
-
-In programming, we'll come across patterns of retrieving information and assigning data relatively frequently. Throughout this course, we'll learn a lot of functionalities across both JS and Ruby that get and set data for us.
+### Get/Modify (10 minutes / 1:30)
 
 #### `.html()`
-- get or set the HTML contents
-- get: no argument, know that it returns the innerHTML of the first jQuery object
-- set: one argument that you want the html content to be
 
-  *Get Example*
+`.html()` can both retrieve ("get") and change ("set") the HTML contents of a DOM node
+- Get: if no argument is passed into the method, it retrieves the HTML content of the first DOM node in the selected collection
+- Set: if an argument is passed into the method, it will replace the HTML content of all selected DOM nodes with that argument
 
-  ```javascript
-  var getInner = $( "#red" ).html();
-  console.log(getInner);
-  ```
+```js
+// Get
+var getInner = $("#red").html();
+console.log(getInner);
+```
 
-  *Set Example*
-  ```javascript
-  $( "ul" ).html("<li>blue</li>");
-  ```
-  <details>
-  <summary>
-  Vanilla Javascript syntax
-  </summary>
+```js
+// Set
+$("ul").html("<li>blue</li>");
+```
 
+<details>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
-  ```javascript
+  ```js
   document.querySelector("ul").innerHTML = "<li>Blue</li>"
   ```
-  </details>
+
+</details>
+
+<!-- AM: Find better way of explaining difference between .html and .text -->
 
 #### `.text()`
-  - similar to `.html()`except that it will not turn markup into elements and will keep strings intact
 
-  - get: returns the content of the selected element as a string, and store it in the variable `text`
-  - set: removes all of the elements children and replaces with whatever newContent is
+Similar to `.html()` except that it will not turn markup into elements and will keep strings intact
+- Get: returns the content of the selected element as a string
+- Set: removes all of the elements children and replaces with whatever newContent is  <!-- AM: Is this true -->
 
-
-  *Get Example*
-  ```javascript
-  var getText = $( "ul" ).text();
-  console.log(getText);
+```js
+// Get
+var getText = $("ul").text();
+console.log(getText);
 ```
-  *Set Example*
-  ```javascript
-  $( "ul" ).text("<li>blue</li>");
-  ```
-  <details>
-  <summary>
-  Vanilla Javascript syntax
-  </summary>
 
+```js
+// Set
+$("ul").text("<li>blue</li>");
+```
 
-  ```javascript
+<details>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
+
+  ```js
   document.querySelector("ul").textContent = "<li>Blue</li>"
   ```
-  </details>
 
-#### `.css()` - You do
+</details>
+
+#### You Do: `.css()` <!-- AM: This is being added to a later You Do -->
+
 - How do you get/set CSS properties on a jQuery object?
 - How do you set multiple CSS properties?
 
-#### `.attr()`
-- get: returns the value of an attribute for the first element in the set of matched elements
-- set: set the value of an element attribute
+#### `.attr()` <!-- AM: This is being added to a later You Do -->
 
-  *Get Example*
-  ```javascript
-  var language = $('html').attr('lang')
-  console.log(language);
+`.attr()` is use to get/set the value of HTML attributes
+- Get: returns the value of an attribute for the first element in the set of matched elements
+- Set: set the value of an element attribute
+
+```js
+// Get
+var language = $('html').attr('lang')
+console.log(language);
+```
+
+```js
+// Set
+$('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
+```
+
+<details>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
+
+  ```js
+  .setAttribute();
   ```
 
-  *Set Example*
-  ```javascript
-  $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
-```
-
-<details>
-<summary>
-Vanilla Javascript syntax
-</summary>
-
-
-```javascript
-.setAttribute();
-```
 </details>
 
-#### You Do: Document Dive and examples (10 minutes)
+#### You Do: Documentation Dive (15 minutes / 1:45)
 
-For the last method, find a partner, research, and provide an example of getting and setting. Be prepared to share your findings with the class. Create an input tag in your HTML for the `.val()` to work effectively.
+> 10 minutes exercise. 5 minutes review.
 
-```html
-<input type="text" value="hello">
-```
-- `.val()`
-[documentation](http://api.jquery.com/val/)
+Find a partner, research, and provide an example of getting and setting using the below methods. Be prepared to share your findings with the class.
+
+- `.css()` ([documentation](http://api.jquery.com/css/))
+- `.attr()` ([documentation](http://api.jquery.com/attr/))
+- `.val()` ([documentation](http://api.jquery.com/val/))
+
+<!-- AM: Update the below solution to include .css() and .attr() -->
 
 <details>
-<summary>
-`.val()` example:
-</summary>
-`html`
-```html
-<input type="text" value="name">
-```
+  <summary><strong>jQuery Solution</strong></summary>
 
-```javascript
-$("input").val("Nayana Davis");
-// set
-```
+  ```html
+  <input type="text" value="name">
+  ```
 
-```javascript
-var myName = $("input").val();
-console.log(myName)
-// get
-```
+  ```js
+  // Get
+  var myName = $("input").val();
+  console.log(myName)
+  ```
+
+  ```js
+  // Set
+  $("input").val("Nayana Davis");
+  ```
+
 </details>
 
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript Solution</strong></summary>
 
+  ```js
+  .value
+  ```
 
-```javascript
-.value
-```
 </details>
 
-### Adding content (5 minutes)
+### Adding Content (5 minutes / 1:50)
 
 #### `.append()`
-- adds newly created element to the end of a parent element, making it the last child
 
-```javascript
-var blue = $( "<li>blue</li>" );
-$( "ul" ).append(blue);
+Adds an element to the end of a parent element, making it the last child.
+
+```js
+var blue = $("<li>blue</li>");
+$("ul").append(blue);
 ```
+
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
+  ```js
+  .appendChild()
+  ```
 
-```javascript
-.appendChild()
-```
 </details>
 
 #### `.prepend()`
-- adds newly created element to the start of a parent element, making it the first child
 
-```javascript
-$( "ul" ).prepend( "<li>pink</li>" );
+Adds element to the start of a parent element, making it the first child.
+
+```js
+$("ul").prepend( "<li>pink</li>");
 ```
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
 
+  ```js
+  .insertBefore()
+  ```
 
-```javascript
-.insertBefore()
-```
 </details>
 
-#### You Do: Document Dive and examples (10 minutes)
+#### You Do: Document Dive (10 minutes / 2:00) <!-- AM: Maybe remove this exercise. Lesson is pressed for time. -->
 
-For the remaining two methods, find a partner, research and provide an example for each. Be prepared to share your answer.
+> 5 minutes exercise. 5 minutes review.
 
-- `.prependTo()`
-[documentation](http://api.jquery.com/prependTo/)
-- `.appendTo()`
-[documentation](http://api.jquery.com/appendTo/)
+Find a partner, research and provide an example for each of the below methods. Be prepared to share your answer.
+
+- `.prependTo()`[documentation](http://api.jquery.com/prependTo/)
+- `.appendTo()`[documentation](http://api.jquery.com/appendTo/)
 
 
-### Removing content (5 minutes)
+### Removing Content (5 minutes / 2:05)
 
 #### `.remove()`
-- removes element from DOM
 
-```javascript
-$( "#red" ).remove();
+Removes element from DOM.
+
+```js
+$("#red").remove();
 ```
+
 <details>
-<summary>
-Vanilla Javascript syntax
-</summary>
-```javascript
-.removeChild()
-```
+  <summary><strong>Vanilla Javascript syntax</strong></summary>
+
+  ```js
+  .removeChild()
+  ```
+
 </details>
 
 #### `.empty()`
-- removes all the child elements of the jquery object it is called on
 
-```javascript
-$( "ul" ).empty();
+Removes all the child elements of the jQuery object it is called on.
+
+```js
+$("ul").empty();
 ```
 
-### Others (5 minutes)
+### Others (5 minutes / 2:10)
 
 #### `.hide()`
-changes elements style to have `display:none`
 
- ```javascript
- $( "#red" ).hide();
- ```
+Changes elements style to have `display: none`
+
+```js
+$("#red").hide();
+```
 
 #### `.show()`
-changes a `display:none` to `display:block` or whatever it initially was
+
+Changes a `display: none` to `display: block` or whatever it was initially.
 
 ```html
-<li id ="red" style ="display:none">red</li>
+<li id="red" style="display: none;">red</li>
 ```
 
-```javascript
-$( "#red" ).show();
+```js
+$("#red").show();
 ```
 
-#### You Do: Document Dive and examples (10 minutes)
+#### You Do: Document Dive (10 minutes / 2:20)
+
+> 5 minutes exercise. 5 minutes review.
 
 For the remaining three methods, find a partner, research and provide an example for each. Be prepared to share your answer.
 
-   `.addClass()`
-   [documentation](http://api.jquery.com/addClass/)
+- `.addClass()` [documentation](http://api.jquery.com/addClass/)
+- `.removeClass()` [documentation](http://api.jquery.com/removeClass/)
+- `.toggleClass()` [documentation](http://api.jquery.com/toggleClass/)
 
-   `.removeClass()`
-   [documentation](http://api.jquery.com/removeClass/)
+## You do: Logo Hijack (15 minutes / 2:35)
 
-   `.toggleClass()`
-   [documentation](http://api.jquery.com/toggleClass/)
+1. Open up https://www.microsoft.com/en-us/ in Chrome or Firefox, and open up the console
+2. Find an image url for the apple logo
+3. Store the url to the apple logo in a variable
+4. Find the Microsoft logo using Javascript and store it in a variable
+5. Modify the source of the logo image so that it's an Apple logo instead
+6. Find the Microsoft search input and store it in a variable
+7. Modify the placeholder of the input so that it says "Search Apple" instead
 
-## You do: Logo hijack (15 min)
+#### Bonus
 
-1. Open up https://www.microsoft.com/en-us/ in Chrome or Firefox, and open up the console.
-1. find an image url for the apple logo
-1. Store the url to the apple logo in a variable.
-1. Find the Microsfot logo using JS and store it in a variable.
-1. Modify the source of the logo IMG so that it's an apple logo instead.
-1. Find the Microsoft search input and store it in a variable.
-1. Modify the placeholder of the input so that it says "Search Apple" instead.
+Add a new element between the image and the search box. It should contain the text "Apple is the new Microsoft".
 
-Bonus: Add a new element between the image and the search textbox, telling the world that "Microsoft is the new Apple".
+## `.each`  <!-- AM: Due to time constraints, might make this section additional reading. -->
 
-## `.each`
-
-With jquery we might want to do something to each element. Say we have 5 paragraph tags in our html:
+With jQuery we might want to do something to each element. Say we have 5 paragraph tags in our html:
 
 ```html
 <p>paragraph1</p>
@@ -538,9 +519,3 @@ $("p").each(function(){
   console.log($(this).html())
 })
 ```
-
-## You do TTMAR
-
-Try out [click events](http://api.jquery.com/on/#event-handler)!
-
-https://github.com/ga-wdi-exercises/ttmar
