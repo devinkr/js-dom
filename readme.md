@@ -13,7 +13,7 @@
 
 In the Objects & Functions lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how Javascript uses objects to represent what you see in the browser.
 
-The **[Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)**
+The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 is a programming interface for HTML. When you load HTML into the browser, it gets converted into an object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
 An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
@@ -51,7 +51,7 @@ Each web page loaded in the browser has its own `document` object. The `document
 
 ### Nodes
 
-Everything in the HTML DOM is a "node". Elements are called "element nodes," attributes are called "attribute nodes," the text inside elements are called "text nodes." There are comment nodes. The document itself is called a document node.
+Everything in the DOM is a "node." Elements are called "element nodes," attributes are called "attribute nodes," the text inside elements are called "text nodes." There are comment nodes. The document itself is called a document node.
 
 You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the parent to the two div elements contained inside it, which are called child nodes. The two divs are also siblings to one another because they are on the same level in the tree structure.
 
@@ -251,7 +251,7 @@ console.log(getInner);
 
 ```js
 // Set
-$("ul").html("<li>blue</li>");
+$("ul").html("<li id='blue'>blue</li>");
 ```
 
 <details>
@@ -393,7 +393,7 @@ $("ul").append(blue);
 Adds element to the start of a parent element, making it the first child.
 
 ```js
-$("ul").prepend("<li>pink</li>");
+$("ul").prepend("<li id='blue'>blue</li>");
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
@@ -413,7 +413,7 @@ Find a partner, research and provide an example for each of the below methods. B
 - `.prependTo()` ([documentation](http://api.jquery.com/prependTo/))
 - `.appendTo()` ([documentation](http://api.jquery.com/appendTo/))
 
-### Removing Content (5 minutes / 1:55)
+### Removing/Showing/Hiding Content (5 minutes / 1:55)
 
 #### `.remove()`
 
@@ -440,8 +440,6 @@ Removes all the child elements of the jQuery object it is called on.
 $("ul").empty();
 ```
 
-### Others (5 minutes / 2:00)
-
 #### `.hide()`
 
 Changes elements style to have `display: none`
@@ -462,7 +460,7 @@ Changes a `display: none` to `display: block` or whatever it was initially.
 $("#red").show();
 ```
 
-#### You Do: Document Dive (10 minutes / 2:10)
+#### You Do: Document Dive (10 minutes / 2:05)
 
 > 5 minutes exercise. 5 minutes review.
 
@@ -472,12 +470,12 @@ For the remaining three methods, find a partner, research and provide an example
 - `.removeClass()` ([documentation](http://api.jquery.com/removeClass/))
 - `.toggleClass()` ([documentation](http://api.jquery.com/toggleClass/))
 
-## You Do: Logo Hijack (15 minutes / 2:25)
+## You Do: Logo Hijack (15 minutes / 2:20)
 
 > 10 minutes exercise. 5 minutes review.
 
 1. Open up the [Microsoft website](https://www.microsoft.com/en-us/) in Chrome or Firefox, and open up the console
-2. Find an image url for the apple logo
+2. [Find an image url](https://www.google.com/search?biw=1280&bih=616&tbm=isch&sa=1&q=apple+logo&oq=apple+logo&gs_l=img.3...0.0.0.4212.0.0.0.0.0.0.0.0..0.0....0...1c..64.img..0.0.0.aMLEWJont34) for the apple logo
 3. Store the url to the apple logo in a variable
 4. Find the Microsoft logo using Javascript and store it in a variable
 5. Modify the source of the logo image so that it's an Apple logo instead
@@ -486,7 +484,7 @@ For the remaining three methods, find a partner, research and provide an example
 
 #### Bonus
 
-Add a new element between the image and the search box. It should contain the text "Apple is the new Microsoft".
+Add a new item to the navigation between the image and the search box. It should contain the text "Apple is the new Microsoft".
 
 ## `.each`
 
