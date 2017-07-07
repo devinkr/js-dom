@@ -11,14 +11,14 @@
 
 ## Framing (10 minutes / 0:10)
 
-In the Objects & Functions lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how Javascript uses objects to represent what you see in the browser.
+In the Objects & Context lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how Javascript uses objects to represent what you see in the browser.
 
 The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 is a programming interface for HTML. When you load HTML into the browser, it gets converted into an object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
 An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
 
-![](http://www.tuxradar.com/files/LXF118.tut_grease.diagram.png)
+![lxf118 tut_grease diagram](https://git.generalassemb.ly/storage/user/6376/files/1035f642-6263-11e7-9a38-4db66c999724)
 
 Or this...
 
@@ -57,7 +57,7 @@ You also can refer to nodes by their relationships to each other. For example, i
 
 Let's look at another example...
 
-![](http://www.dege.ukfsn.org/dom/dom.gif)
+![dom](https://git.generalassemb.ly/storage/user/6376/files/6a45d7d4-6262-11e7-9c31-a220306808e0)
 
 ## jQuery Basics (5 minutes / 0:15)
 
@@ -83,14 +83,14 @@ You can add jQuery to your site by either [downloading it from the jQuery websit
 Today, we'll use a CDN...
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 ```
 
 We're going to add the following code to the top of the `script.js` file when using jQuery...
 
 ```js
-$(document).ready(function(){
-  console.log("hello world")
+$(document).ready(function () {
+  console.log('hello world')
 })
 ```
 
@@ -103,11 +103,11 @@ jQuery selectors enable you to find and manipulate HTML elements.
 #### Get element by ID
 
 ```js
-$("#someId")
+$('#someId')
 ```
 
 ```js
-var red = $("#red")
+var red = $('#red')
 console.log(red)
 ```
 
@@ -115,7 +115,7 @@ console.log(red)
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.getElementById("red")
+  document.getElementById('red')
   ```
 
 </details>
@@ -123,20 +123,20 @@ console.log(red)
 #### Get elements by tag name
 
 ```js
-$("li")
+$('li')
 ```
 
 > This will return all the tags of that name.
 
 ```js
-var liTags = $("li")
+var liTags = $('li')
 console.log(liTags)
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.querySelectorAll("li")
+  document.querySelectorAll('li')
   ```
 
 </details>
@@ -144,20 +144,20 @@ console.log(liTags)
 #### Get elements by class
 
 ```js
-$(".myClass")
+$('.myClass')
 ```
 
 > This will return all elements with that class.
 
 ```js
-var liClass = $(".black")
+var liClass = $('.black')
 console.log(liClass)
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.querySelectorAll(".black")
+  document.querySelectorAll('.black')
   ```
 
 </details>
@@ -165,7 +165,7 @@ console.log(liClass)
 #### All valid CSS selectors and pseudo-selectors work
 
 ```js
-var lastBlackLi = $(".black:last-of-type")
+var lastBlackLi = $('.black:last-of-type')
 console.log(lastBlackLi)
 ```
 
@@ -176,7 +176,7 @@ Once you've made an initial selection, you can dig deeper using traversal method
 #### `.children()`
 
 ```js
-var ulChildren = $("ul").children()
+var ulChildren = $('ul').children()
 console.log(ulChildren)
 ```
 
@@ -184,21 +184,21 @@ console.log(ulChildren)
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.getElementById("red").children
+  document.getElementById('red').children
   ```
 </details>
 
 #### `.parent()`
 
 ```js
-var redParent = $("#red").parent()
+var redParent = $('#red').parent()
 console.log(redParent)
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.getElementById("red").parentNode
+  document.getElementById('red').parentNode
   ```
 
 </details>
@@ -206,21 +206,21 @@ console.log(redParent)
 #### `.siblings()`
 
 ```js
-var redSiblings = $("#red").siblings()
+var redSiblings = $('#red').siblings()
 console.log(redSiblings)
 ```
 
 #### `.eq()`
 
 ```js
-var getRed = $("li").eq(0)
+var getRed = $('li').eq(0)
 console.log(getRed)
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.getElementById("myID").childNodes[2]
+  document.getElementById('myID').childNodes[2]
   ```
 
   > This implementation uses square brackets to access a child node within a collection.
@@ -245,20 +245,20 @@ Spend 20 minutes completing [this exercise](https://github.com/ga-wdi-exercises/
 
 ```js
 // Get
-var getInner = $("#red").html();
-console.log(getInner);
+var getInner = $('#red').html()
+console.log(getInner)
 ```
 
 ```js
 // Set
-$("ul").html("<li id='blue'>blue</li>");
+$('ul').html("<li id='blue'>blue</li>")
 ```
 
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.querySelector("ul").innerHTML = "<li>Blue</li>"
+  document.querySelector('ul').innerHTML = '<li>Blue</li>'
   ```
 
 </details>
@@ -271,20 +271,20 @@ Similar to `.html()` except that it will not turn markup into elements and will 
 
 ```js
 // Get
-var getText = $("ul").text();
-console.log(getText);
+var getText = $('ul').text()
+console.log(getText)
 ```
 
 ```js
 // Set
-$("ul").text("<li>blue</li>");
+$('ul').text('<li>blue</li>')
 ```
 
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
 
   ```js
-  document.querySelector("ul").textContent = "<li>Blue</li>"
+  document.querySelector('ul').textContent = '<li>Blue</li>'
   ```
 
 </details>
@@ -306,13 +306,13 @@ Find a partner, research, and provide an example of getting and setting using th
 
   ```js
   // Get
-  var bodyBackgroundColor = $("body").css("background-color")
+  var bodyBackgroundColor = $('body').css('background-color')
   console.log(bodyBackgroundColor)
   ```
 
   ```js
   // Set
-  $("body").css("background-color", "lemonchiffon")
+  $('body').css('background-color', 'lemonchiffon')
   ```
 
   <strong><code>.attr()</code></strong>
@@ -323,8 +323,8 @@ Find a partner, research, and provide an example of getting and setting using th
 
   ```js
   // Get
-  var language = $("html").attr("lang")
-  console.log(language);
+  var language = $('html').attr('lang')
+  console.log(language)
   ```
 
   ```js
@@ -340,13 +340,13 @@ Find a partner, research, and provide an example of getting and setting using th
 
   ```js
   // Get
-  var myName = $("input").val();
+  var myName = $('input').val()
   console.log(myName)
   ```
 
   ```js
   // Set
-  $("input").val("Nayana Davis");
+  $('input').val('Nayana Davis')
   ```
 
 </details>
@@ -359,7 +359,7 @@ Find a partner, research, and provide an example of getting and setting using th
   ```
 
   ```js
-  .setAttribute();
+  .setAttribute()
   ```
 
   ```js
@@ -375,8 +375,8 @@ Find a partner, research, and provide an example of getting and setting using th
 Adds an element to the end of a parent element, making it the last child.
 
 ```js
-var blue = $("<li>blue</li>");
-$("ul").append(blue);
+var blue = $('<li>blue</li>')
+$('ul').append(blue)
 ```
 
 <details>
@@ -393,7 +393,7 @@ $("ul").append(blue);
 Adds element to the start of a parent element, making it the first child.
 
 ```js
-$("ul").prepend("<li id='blue'>blue</li>");
+$('ul').prepend("<li id='blue'>blue</li>")
 ```
 <details>
   <summary><strong>Vanilla Javascript syntax</strong></summary>
@@ -420,7 +420,7 @@ Find a partner, research and provide an example for each of the below methods. B
 Removes element from DOM.
 
 ```js
-$("#red").remove();
+$('#red').remove()
 ```
 
 <details>
@@ -437,7 +437,7 @@ $("#red").remove();
 Removes all the child elements of the jQuery object it is called on.
 
 ```js
-$("ul").empty();
+$('ul').empty()
 ```
 
 #### `.hide()`
@@ -445,7 +445,7 @@ $("ul").empty();
 Changes elements style to have `display: none`
 
 ```js
-$("#red").hide();
+$('#red').hide()
 ```
 
 #### `.show()`
@@ -457,7 +457,7 @@ Changes a `display: none` to `display: block` or whatever it was initially.
 ```
 
 ```js
-$("#red").show();
+$('#red').show()
 ```
 
 #### You Do: Document Dive (10 minutes / 2:05)
@@ -501,19 +501,19 @@ With jQuery we might want to do something to each element. Say we have 5 paragra
 Say we wanted to add a class to each paragraph. We can do something like this...
 
 ```js
-$("p").addClass("pizza")
+$('p').addClass('pizza')
 ```
 
 This add the class of `pizza` to each of the paragraph tags. This is happening through something called "implicit iteration" in jQuery. Under the hood Javascript is looping through each paragraph tag and adding a class. What if we wanted to log the HTML to the console? We might try this...
 
 ```js
-console.log($("p").html())
+console.log($('p').html())
 ```
 
 Hmm, that only gives us the first paragraph's HTML. We need a way to iterate over each of the paragraph tags. Enter `.each`...
 
 ```js
-$("p").each(function(){
+$('p').each(function () {
   console.log($(this).html())
 })
 ```
