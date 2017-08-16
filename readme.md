@@ -74,7 +74,7 @@ It's important to note that jQuery is JavaScript. Every jQuery method is executi
 ### Set Up Environment (5 minutes / 0:20)
 
 ```bash
-$ git clone https://github.com/ga-wdi-exercises/jquery-playground.git
+$ git clone https://git.generalassemb.ly/ga-wdi-exercises/jquery-playground.git
 $ cd jquery-playground
 $ atom .
 $ open index.html
@@ -233,7 +233,7 @@ console.log(getRed)
 
 > 20 minutes exercise. 10 minutes review.
 
-Spend 20 minutes completing [this exercise](https://github.com/ga-wdi-exercises/js-dom-quotes/tree/jquery).
+Spend 20 minutes completing [this exercise](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-quotes/tree/jquery).
 
 ## Break (10 minutes / 1:10)
 
