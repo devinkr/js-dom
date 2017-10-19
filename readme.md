@@ -3,7 +3,7 @@
 ## Learning Objectives
 
 - Explain what the DOM is and how it is structured
-- Select and target DOM elements using jQuery selectors
+- Target DOM elements using jQuery selectors
 - Create, read, update, and delete DOM elements
 - Change the attributes or content of a DOM element
 - Explain the benefits of jQuery
@@ -13,10 +13,9 @@
 
 In the Objects & Context lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how JavaScript uses objects to represent what you see in the browser.
 
-The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-is a programming interface for HTML. When you load HTML into the browser, it gets converted into an object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
+The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), commonly referred to as the "DOM", is a programming interface for HTML. When you load HTML into the browser, it gets converted into a dynamic object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
-An HTML *document* is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
+The DOM is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
 
 ![lxf118 tut_grease diagram](https://git.generalassemb.ly/storage/user/6376/files/1035f642-6263-11e7-9a38-4db66c999724)
 
@@ -53,23 +52,23 @@ Each web page loaded in the browser has its own `document` object. The `document
 
 Everything in the DOM exists as a **node**. HTML elements are called **element nodes**, attributes are called **attribute nodes**, the text inside elements are called **text nodes**. There are even comment nodes for `<!-- html comments like this one --->`. The document itself is called a document node.
 
-You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the parent to the two div elements contained inside it, which are called child nodes. The two divs are also siblings to one another because they are on the same level in the tree structure.
+You also can refer to nodes by their relationships to each other. For example, in the graphic above, you would say that the body element is the "parent" to the two `div` elements contained inside it, which are called child nodes. The two divs are also "siblings" to one another because they are on the same level in the tree structure.
 
 Let's look at another example...
 
-![dom](https://git.generalassemb.ly/storage/user/6376/files/6a45d7d4-6262-11e7-9c31-a220306808e0)
+![DOM Tree Relationships](http://profsamscott.com/javascript/images/helloworldtree.jpg)
 
 ## jQuery Basics (5 minutes / 0:15)
 
-Understanding the DOM is central to working in JavaScript. JavaScript uses the DOM to create dynamic HTML. [This includes](http://www.w3schools.com/js/js_htmldom.asp) adding new HTML elements and attributes, changing CSS styles in a page and removing existing elements and attributes.
+Understanding the DOM is central to working in JavaScript. JavaScript uses the DOM to create dynamic HTML. This includes adding new HTML elements and attributes, changing CSS styles in a page, removing existing elements and attributes, and [many more things](https://www.w3schools.com/js/js_htmldom.asp).
 
-jQuery is a JavaScript library that is intended to make it easier to use JavaScript on your website. It's known as the "write less, do more" library.
+[jQuery](http://api.jquery.com/) is a JavaScript library that is intended to make it easier to use JavaScript to manipulate the DOM. Its motto and guiding principle is "write less, do more".
 
-One of its main features is that it makes DOM traversal--that is, finding HTML elements based on their relationships with other elements--and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
+One of its main features is that it makes selecting DOM elements, DOM traversal (finding HTML elements based on their relationships with other elements), and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
 
-After working with CSS, you'll find jQuery to be a friendly way to dive into interactive development because it also emphasizes the use of selecting elements so you can do stuff to them.
+After working with CSS, you'll find jQuery to be a friendly way to dive into interactive development because it uses a similar syntax for selecting DOM elements.
 
-It's important to note that jQuery is JavaScript. Every jQuery method is executing JavaScript code under the hood. You can see this by looking through the [jQuery source code](https://github.com/jquery/jquery/tree/master/src).
+It's important to note that jQuery **is JavaScript**. Every jQuery method is executing JavaScript code under the hood. You can see this by looking through the [jQuery source code](https://github.com/jquery/jquery/tree/master/src).
 
 ### Set Up Environment (5 minutes / 0:20)
 
@@ -186,7 +185,7 @@ console.log(ulChildren)
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  document.getElementById('red').children
+  document.querySelector('ul').children
   ```
 </details>
 
@@ -215,17 +214,15 @@ console.log(redSiblings)
 #### `.eq()`
 
 ```js
-var getRed = $('li').eq(0)
-console.log(getRed)
+var thirdLi = $('li').eq(2)
+console.log(thirdLi)
 ```
 <details>
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  document.getElementById('myID').childNodes[2]
+  document.querySelectorAll('li')[2]
   ```
-
-  > This implementation uses square brackets to access a child node within a collection.
 
 </details>
 
@@ -239,17 +236,17 @@ Spend 20 minutes completing [this exercise](https://git.generalassemb.ly/ga-wdi-
 
 ### Get/Set (10 minutes / 1:20)
 
-Many jQuery methods act as setters and getters, depending on the number of arguments passed in. A **getter** method will return or **get** the current value of an attribute or property. Think of a getter method as for *reading* a specified property or attribute. For *writing* value with **setter** methods, we specify certain property or attribute, and a new value to **set** that property to.
+Many jQuery methods act as both setters and getters for DOM elements, depending on the number of arguments passed in. A **getter** method will return (or "get") the current value of an attribute or property. Think of a getter method as for *reading* a specified property or attribute.  **Setter** methods are used to *write* (or "set") a specified property or attribute.
 
-#### `.html()`
+#### html
 
-`.html()` can both retrieve ("get") and change ("set") the HTML contents of a DOM node
+The `.html()` method can both retrieve ("get") and change ("set") the HTML contents of a DOM node
 - Get: if no argument is passed into the method, it retrieves the HTML content of the first DOM node in the selected collection
 - Set: if an argument is passed into the method, it will replace the HTML content of all selected DOM nodes with that argument
 
 ```js
 // Get
-var getInner = $('#red').html()
+var getInner = $('ul').html()
 console.log(getInner)
 ```
 
@@ -262,33 +259,43 @@ $('ul').html("<li id='blue'>blue</li>")
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  document.querySelector('ul').innerHTML = '<li>Blue</li>'
+  // Get
+  document.querySelector('ul').innerHTML
+
+  // Set
+  document.querySelector('ul').innerHTML = "<li class='blue'>Blue</li>"
   ```
 
 </details>
 
-#### `.text()`
+#### `text`
 
-Similar to `.html()` except that it will not turn markup into elements and will keep strings intact
-- Get: returns the content of the selected element as a string
-- Set: removes all of the elements children and replaces with whatever newContent is
+`.text()` is similar to `.html()` except that it will only get / set *text* content (as opposed to HTML content)
+- Get: returns the text content of the selected element(s) as a string
+- Set: sets the text content of the selected element(s) to whatever is passed in as an argument
 
 ```js
 // Get
-var getText = $('ul').text()
+var getText = $('#red').text()
 console.log(getText)
 ```
+> Note: unlike `.html()`, if multiple elements are selected, `.text()` will retrieve the text content of *all* of them, not just the first element
 
 ```js
 // Set
-$('ul').text('<li>blue</li>')
+$('li').text('crimson')
 ```
 
 <details>
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  document.querySelector('ul').textContent = '<li>Blue</li>'
+  // To change the text of the first li
+  document.querySelector('li').textContent = 'crimson'
+
+  // To change the text of all li's (like `.text()`)
+  let lis = document.querySelectorAll('li')
+  lis.forEach((li) => li.textContent = 'crimson')
   ```
 
 </details>
@@ -306,7 +313,7 @@ Find a partner, research, and provide an example of getting and setting using th
 <details>
   <summary><strong>jQuery Solution</strong></summary>
 
-  <strong><code>.css()</code></strong>
+  <strong><code>css</code></strong>
 
   ```js
   // Get
@@ -319,7 +326,7 @@ Find a partner, research, and provide an example of getting and setting using th
   $('body').css('background-color', 'lemonchiffon')
   ```
 
-  <strong><code>.attr()</code></strong>
+  <strong><code>attr</code></strong>
 
   <code>.attr()</code> is use to get/set the value of HTML attributes
   - Get: returns the value of an attribute for the first element in the set of matched elements
@@ -327,8 +334,8 @@ Find a partner, research, and provide an example of getting and setting using th
 
   ```js
   // Get
-  var language = $('html').attr('lang')
-  console.log(language)
+  var imgSrc = $('img').attr('src')
+  console.log(imgSrc)
   ```
 
   ```js
@@ -336,10 +343,10 @@ Find a partner, research, and provide an example of getting and setting using th
   $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
   ```
 
-  <strong><code>.val()</code></strong>
+  <strong><code>val</code></strong>
 
   ```html
-  <input type="text" value="name">
+  <input type="text" value="Andrew Whitley">
   ```
 
   ```js
@@ -350,7 +357,7 @@ Find a partner, research, and provide an example of getting and setting using th
 
   ```js
   // Set
-  $('input').val('Nayana Davis')
+  $('input').val('Andy Whitley')
   ```
 
 </details>
@@ -359,15 +366,27 @@ Find a partner, research, and provide an example of getting and setting using th
   <summary><strong>Vanilla JavaScript Solution</strong></summary>
 
   ```js
-  .style()
+  // Get CSS Property
+  document.querySelector('body').style.backgroundColor
+
+  // Set CSS Property
+  document.querySelector('body').style.backgroundColor = 'lemonchiffon'
   ```
 
   ```js
-  .setAttribute()
+  // Get HTML Attribute
+  document.querySelector('img').getAttribute('src')
+
+  // Set HTML Attribute
+  document.querySelector('img').setAttribute('src', 'http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
   ```
 
   ```js
-  .value
+  // Get HTML Value
+  document.querySelector('input').value
+
+  // Set HTML Value
+  document.querySelector('input').value = 'Andrew Whitley'
   ```
 
 </details>
@@ -387,7 +406,9 @@ $('ul').append(blue)
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  .appendChild()
+  var blue = document.createElement('li')
+  blue.innerHTML = 'blue'
+  document.querySelector('ul').appendChild(blue)
   ```
 
 </details>
@@ -403,7 +424,10 @@ $('ul').prepend("<li id='blue'>blue</li>")
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  .insertBefore()
+  var blue = document.createElement('li')
+  blue.innerHTML = 'blue'
+  var refChild = document.querySelector('ul').children[0]
+  document.querySelector('ul').insertBefore(blue, refChild)
   ```
 
 </details>
@@ -419,7 +443,7 @@ Find a partner, research and provide an example for each of the below methods. B
 
 ### Removing/Showing/Hiding Content (5 minutes / 1:55)
 
-#### `.remove()`
+#### `remove`
 
 Removes element from DOM.
 
@@ -431,7 +455,7 @@ $('#red').remove()
   <summary><strong>Vanilla JavaScript syntax</strong></summary>
 
   ```js
-  .removeChild()
+  document.getElementById('red').remove()
   ```
 
 </details>
@@ -452,6 +476,15 @@ Changes elements style to have `display: none`
 $('#red').hide()
 ```
 
+<details>
+  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+
+  ```js
+  document.getElementById('red').style.display = 'none'
+  ```
+
+</details>
+
 #### `.show()`
 
 Changes a `display: none` to `display: block` or whatever it was initially.
@@ -463,6 +496,15 @@ Changes a `display: none` to `display: block` or whatever it was initially.
 ```js
 $('#red').show()
 ```
+
+<details>
+  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+
+  ```js
+  document.getElementById('red').style.display = 'initial'
+  ```
+
+</details>
 
 #### You Do: Document Dive (10 minutes / 2:05)
 
@@ -478,13 +520,13 @@ For the remaining three methods, find a partner, research and provide an example
 
 > 10 minutes exercise. 5 minutes review.
 
-1. Open up the [Microsoft website](https://www.microsoft.com/en-us/) in Chrome or Firefox, and open up. the console
-2. [Find an image. url](https://www.google.com/search?biw=1280&bih=616&tbm=isch&sa=1&q=apple+logo&oq=apple+logo&gs_l=img.3...0.0.0.4212.0.0.0.0.0.0.0.0..0.0....0...1c..64.img..0.0.0.aMLEWJont34) for the apple logo
-3. Store the url to the apple logo in a variable.
-4. Find the Microsoft logo using JavaScript and store it in a variable.
-5. Modify the source of the logo image so that it's an Apple logo instead.
-6. Find the Microsoft search input and store it in a variable.
-7. Modify the placeholder of the input so that it says "Search Apple" instead.
+1. Open up the [Microsoft website](https://www.microsoft.com/en-us/) in Chrome or Firefox, and open the console
+2. [Find an image url](https://www.google.com/search?biw=1280&bih=616&tbm=isch&sa=1&q=apple+logo&oq=apple+logo&gs_l=img.3...0.0.0.4212.0.0.0.0.0.0.0.0..0.0....0...1c..64.img..0.0.0.aMLEWJont34) for the apple logo
+3. Store the url to the apple logo in a variable
+4. Find the Microsoft logo using JavaScript and store it in a variable
+5. Modify the source of the logo image so that it's an Apple logo instead
+6. Find the Microsoft search input and store it in a variable
+7. Modify the placeholder of the input so that it says "Search Apple" instead
 
 #### Bonus
 
