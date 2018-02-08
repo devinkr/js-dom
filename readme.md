@@ -252,7 +252,7 @@ Explore this list of methods and properties:
 
 What are they? What information do they hold? What's the difference between `offsetHeight` and `clientHeight`? What data do you see in the result of `getBoundingClientRect()`?
 
-## You Do: [JS DOM TOC]() or [JS DOM Slideshow]() (15 min / 2:30)
+## You Do: [JS DOM TOC](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-toc) or [JS DOM Slideshow](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-slideshow.git) (15 min / 2:30)
 
 
 
