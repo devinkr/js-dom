@@ -172,7 +172,7 @@ Now that we know how to get elements from the DOM, it'd probably be helpful to l
 
 We're going to count off and break up in to 7 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
 
-**Getting and Setting Attributes**
+**1. Getting and Setting Attributes**
 
 Remember from our HTML lesson that some elements have attributes: the `a` tag has an `href` attribute and the `img` tag has a `src` attribute. In JavaScript, there are ways to access the list of attributes on a node and to get and set attributes.
 
@@ -184,7 +184,7 @@ Look at the `attributes` property of a node. Also look up the `getAttribute` and
 - How to we get the value of a particular attribute (like the `href` attribute)?
 - How do we add an attribute (like the `name` attribute)?
 
-**Class list API**
+**2. Class list API**
 
 A very common task in JavaScript is toggling CSS classes. We'll remove a `.is-hidden` class when the user clicks on something or we'll add an `is-active` class a navigation element when someone clicks on a hamburger menu.
 
@@ -198,7 +198,7 @@ Research these methods and think about how they work and why they're useful. Pre
 - How can we remove a class from a node?
 - How can we toggle a class from a node?
 
-**Traversing Nodes**
+**3. Traversing Nodes**
 
 We'll often have a particular node but need to check it's parents, children or siblings. Luckily, each node has this information stored within it!
 
@@ -214,13 +214,13 @@ What are these properties? What is the difference between children and child Nod
 
 Think about these questions and explore the above list of properties. Prepare a demo to showcase how to access these and what the different options tell you.
 
-**Changing the Styling**
+**4. Changing the Styling**
 
 Something we may want to perform in JavaScript is updating or changing the styling of an element using JavaScript. A lot of web animation tools do that and there are tools for React (which we'll learn about later) that do this so you can write all your styles in JavaScript.
 
 Explore the `style` property of a node. What do you see in there? How could we see the style of an element like, is it `display: block`? Can we change these style properties, like setting the background color?
 
-**Content**
+**5. Content**
 
 We'll sometimes have an element and want to change the text or html contained within that element. This is commonly called *templating* and there are libraries that will make it a little easier. With the new template literal syntax in ES6, we can often get away without a templating library. We could just use the list of properties below to reset the html or text of an element and interpolate data in to it.
 
@@ -234,13 +234,13 @@ What are they? How are they similar? How are they different?
 
 Create a demo to showcase how you might use these and why they might be useful. Can we change the html inside of an element?
 
-**Dataset**
+**6. Dataset**
 
 Part of HTML5 includes the `data-*` attribute: a way for us to attach arbitrary data to an element. If we define a `div` element with a `data-name="A Great Div"` attribute, then our `dataset` property inside our node will be an object with a `name` key holding the string `"A Great Div"`.
 
 Play around with it. Look up the `data-*` attribute and explore the `dataset` property inside of a node. See how you can create data attributes of your own and retrieve the data they hold from the `dataset` object.
 
-**Node Dimensions**
+**7. Node Dimensions**
 
 There are a number of use cases where getting the height, width and position of a node are helpful, but the biggest is probable animation.
 
