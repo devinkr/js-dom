@@ -1,19 +1,18 @@
-# The DOM & jQuery
+ # The DOM & jQuery
 
 ## Learning Objectives
 
 - Explain what the DOM is and how it is structured
-- Target DOM elements using jQuery selectors
+- Target DOM elements using JavaScript selectors
 - Create, read, update, and delete DOM elements
 - Change the attributes or content of a DOM element
-- Explain the benefits of jQuery
-- Explore jQuery methods for DOM manipulation and traversal
+- Explore JavaScript methods for DOM manipulation and traversal
 
 ## Framing (10 minutes / 0:10)
 
 In the Objects & Context lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how JavaScript uses objects to represent what you see in the browser.
 
-The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), commonly referred to as the "DOM", is a programming interface for HTML. When you load HTML into the browser, it gets converted into a dynamic object-based DOM structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
+The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), commonly referred to as the "DOM", is a programming interface for HTML. When you load HTML into the browser, it gets converted into a dynamic object-based structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
 The DOM is available for us to manipulate as an object, and this object is structured and stored like an upside down tree, like this...
 
@@ -46,7 +45,7 @@ html
 
 ### The Document Object
 
-Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. The document is an example of an **host object**--that is, a JavaScript object provided by and unique to the browser environment.
+Each web page loaded in the browser has its own `document` object. The `document` interface serves as an entry point to the web page's content. The document is an example of a **host object**--that is, a JavaScript object provided by and unique to the browser environment.
 
 ### Nodes
 
@@ -58,508 +57,202 @@ Let's look at another example...
 
 ![DOM Tree Relationships](http://profsamscott.com/javascript/images/helloworldtree.jpg)
 
-## jQuery Basics (5 minutes / 0:15)
+## Basics of Working with the DOM (5 min / 0:15)
 
 Understanding the DOM is central to working in JavaScript. JavaScript uses the DOM to create dynamic HTML. This includes adding new HTML elements and attributes, changing CSS styles in a page, removing existing elements and attributes, and [many more things](https://www.w3schools.com/js/js_htmldom.asp).
 
-[jQuery](http://api.jquery.com/) is a JavaScript library that is intended to make it easier to use JavaScript to manipulate the DOM. Its motto and guiding principle is "write less, do more".
+It used to be rather difficult to interact with the DOM because different browsers had different methods for doing so. This is what gave way for the rise of [jQuery](http://api.jquery.com/), a JavaScript library intended to make DOM manipulation easier. Nowadays, the DOM API is standardized and we don't really need to worry about using (and learning) an additional library. 
 
-One of its main features is that it makes selecting DOM elements, DOM traversal (finding HTML elements based on their relationships with other elements), and DOM manipulation much more simple. Another major benefit is that it enables you to write code that behaves the same across different browsers and browser versions.
+## Getting Data from the DOM 
 
-After working with CSS, you'll find jQuery to be a friendly way to dive into interactive development because it uses a similar syntax for selecting DOM elements.
+There are two groups of methods you can use to get elements from the DOM. We'll start with the oldest and end with the ones we recommend.
 
-It's important to note that jQuery **is JavaScript**. Every jQuery method is executing JavaScript code under the hood. You can see this by looking through the [jQuery source code](https://github.com/jquery/jquery/tree/master/src).
+### `getElement(s)By` (15 min / 0:30)
 
-### Set Up Environment (5 minutes / 0:20)
+Each of these methods follows the same general naming convention:
 
-```bash
-$ git clone https://git.generalassemb.ly/ga-wdi-exercises/jquery-playground.git
-$ cd jquery-playground
-$ atom .
-$ open index.html
-```
+| Method Name | Description |
+| --- | --- |
+| `.getElementById()` | Gets a single element by an ID selector |
+| `.getElementsByClassName()` | Gets a list of elements with a class selector |
+| `.getElementsByTagName()` | Gets a list of elements with a tag (element) selector |
 
-You can add jQuery to your site by either [downloading it from the jQuery website](https://jquery.com/download/) and hosting it locally or using what's called a Content Delivery Network (CDN). A CDN is a collection of global servers that caches and delivers content including JavaScript files.
+Each of these three methods are part of the `document` object. We'll walk through each individually:
 
-Today, we'll use a CDN...
+**`getElementById()`**
 
-```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-```
-
-We're going to add the following code to the top of the `script.js` file when using jQuery...
+To use the `getElementById` method, we first need to reference the `document` object (where the method lives). Then, we pass in a string that matches the ID of an element in our HTML
 
 ```js
-$(document).ready(function () {
-  console.log('hello world')
-})
+let titleElement = document.getElementById('title')
 ```
 
-> Everything placed inside the `$(document).ready()` method will not be processed until all the HTML has been loaded. In this case, that code is `console.log("hello world")`.
+The above code snippet will find the first item on the page with an ID of `title` and return it back to us, to be saved in the variable `titleElement`.
 
-### Selectors (5 minutes / 0:25)
+**`getElementsByClassName`**
 
-jQuery selectors enable you to find and manipulate HTML elements.
-
-#### Get element by ID
+The `getElementById` method returns a single Node item; the `getElementsByClassName` returns a NodeList, which is like an Array of Nodes.
 
 ```js
-$('#someId')
+let paragraphElements = document.getElementsByClassName('paragraph')
 ```
+
+The above code snippet returns a NodeList (like an Array) of every element with a class of 'paragraph' and saves it to the `paragraphElements` variable. Notice that `Elements` in the method name is plural here, where as in `getElementById` it's singular? This is to tell us that `getElementByID` only returns one Node while `getElementsByClassName` returns a list of Nodes.
+
+**`getElementsByTagName`**
+
+The `getElementsByTagName` is a hand way of retrieving elements by their html tag (`h1`, `span`, `a`, `li`, etc). `Elements` is plural in the method name, meaning it too returns a list of Nodes.
 
 ```js
-var red = $('#red')
-console.log(red)
+let spanElements = document.getElementsByTagName('span)
 ```
 
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+The above snippet returns every `span` element on the page and saves it to the `spanElements` variable.
 
-  ```js
-  document.getElementById('red')
-  ```
+### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-practice) (10 min / 0:40)
 
-</details>
+Open up the practice exercise and work through the prompts in the `getelements.js` file.
 
-#### Get elements by tag name
+### `querySelector` (15 min / 0:55)
+
+There are only two methods in this group: `querySelector` and `querySelectorAll`. In the `getElement(s)By` family of methods, we saw that sometimes `Elements` was plural in the method name and sometimes it was singular, and that's how we knew whether the method returned a single node or a list of nodes. With the `querySelector` family, the clue is also in the name: `querySelector` returns a single node (specifically, the first matching node) whereas `querySelectorAll` returns a list of nodes (specifically, every matching node).
+
+We'll walk through both `querySelector` and `querySelector` all, but first a note about selectors:
+
+#### Selectors
+
+Unlike with the `getElement(s)By` family of methods, we need to pass a complete selector to both `querySelector` and `querySelectorAll` - it's in the name! What's a selector? A selector is a way of targeting a particular element, something we learned about when we first covered CSS.
+
+The following is a list of CSS selectors and the JavaScript equivalents you would use with `querySelector`:
+
+| CSS Selector | JS Selector |
+| --- | --- |
+| `.class-name` | `.class-name` |
+| `#some-id` | `#some-id` |
+| `h1` | `h1` |
+
+They're the same! Phew, that's lucky!
+
+The `querySelector` methods were designed to mimic the way we target elements in CSS, so the selector we pass in is the same we'd use to style that element!
+
+**`querySelector`**
+
+With `querySelector`, we'll pass in a selector for the element we want to retrieve from the DOM. The element that we get back will be the first element that matches that selector.
 
 ```js
-$('li')
+let title = document.querySelector('.title')
 ```
 
-> This will return ***all*** the tags of that name.
+We'll only get one element back and it will always be the first element that matches the selector (in this case, `.title`). If we have more than one element in the page with that selector and we want to retrieve them all, then we'd use `querySelectorAll`
+
+**`querySelectorAll`**
+
+With `querySelectorAll`, we'll get back all elements on the page that match the selector we pass in.
 
 ```js
-var liTags = $('li')
-console.log(liTags)
-```
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  document.querySelectorAll('li')
-  ```
-
-</details>
-
-#### Get elements by class
-
-```js
-$('.myClass')
+let title = document.querySelectorAll('h2')
 ```
 
-> This will return ***all*** elements with that class.
+The above code snippet would return a list of all `h2` elements on the page.
 
-```js
-var liClass = $('.black')
-console.log(liClass)
-```
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-practice) (10 min / 1:05)
 
-  ```js
-  document.querySelectorAll('.black')
-  ```
+Open up the practice exercise and work through the prompts in the `queryselector.js` file.
 
-</details>
+## Break (15 min / 1:20)
 
-#### All valid CSS selectors and pseudo-selectors work
+## Setting Data in the DOM
 
-```js
-var lastBlackLi = $('.black:last-of-type')
-console.log(lastBlackLi)
-```
+Now that we know how to get elements from the DOM, it'd probably be helpful to learn what we can do with them. We'll soon learn about adding event listeners to DOM elements - a way for us to listen for when some event happens to a node (like it gets clicked) and then perform some response. But there are many other things we can do with nodes! Toggle, add or remove classes, change their styling, animate them, move them from one part of the page to another, replace their content with new content, etc. The list goes on!
 
-### Traversal Methods (5 minutes / 0:30)
+### Exploring DOM Nodes
 
-Once you've made an initial selection, you can dig deeper using traversal methods.
+### Exploring DOM Nodes (55 min / 2:15)
+> 20 minutes to research and prepare a demo, 35 minutes to present (5 minutes per group)
 
-#### `.children()`
+We're going to count off and break up in to 7 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
 
-```js
-var ulChildren = $('ul').children()
-console.log(ulChildren)
-```
+**Getting and Setting Attributes**
 
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+Remember from our HTML lesson that some elements have attributes: the `a` tag has an `href` attribute and the `img` tag has a `src` attribute. In JavaScript, there are ways to access the list of attributes on a node and to get and set attributes.
 
-  ```js
-  document.querySelector('ul').children
-  ```
-</details>
+Every node object has an `attributes` property where it lists it's attributes (like `href` and `src`). You can get and set data using the `getAttribute` and `setAttribute` method.
 
-#### `.parent()`
+Look at the `attributes` property of a node. Also look up the `getAttribute` and `setAttribute` methods and how they work. Prepare a demo to showcase these. Your demo should show the following:
 
-```js
-var redParent = $('#red').parent()
-console.log(redParent)
-```
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+- How do we access the list of attributes on a node?
+- How to we get the value of a particular attribute (like the `href` attribute)?
+- How do we add an attribute (like the `name` attribute)?
 
-  ```js
-  document.getElementById('red').parentNode
-  ```
+**Class list API**
 
-</details>
+A very common task in JavaScript is toggling CSS classes. We'll remove a `.is-hidden` class when the user clicks on something or we'll add an `is-active` class a navigation element when someone clicks on a hamburger menu.
 
-#### `.siblings()`
+The way we get and set classes on nodes is with the `classList` API. Every node has a `classList` property and there are methods we can use to add  a class (`addClass`), remove a class (`removeClass`) or toggle a class (`toggleClass`).
 
-```js
-var redSiblings = $('#red').siblings()
-console.log(redSiblings)
-```
+Research these methods and think about how they work and why they're useful. Prepare a demo to showcase the following:
 
-#### `.eq()`
+- How can we see the list of classes a node has?
+- How can we check to see if a node has a class?
+- How can we add a class to a node?
+- How can we remove a class from a node?
+- How can we toggle a class from a node?
 
-```js
-var thirdLi = $('li').eq(2)
-console.log(thirdLi)
-```
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+**Traversing Nodes**
 
-  ```js
-  document.querySelectorAll('li')[2]
-  ```
+We'll often have a particular node but need to check it's parents, children or siblings. Luckily, each node has this information stored within it!
 
-</details>
+Look through a node object and see if you can find the following:
 
-## You Do: Selecting DOM elements (30 minutes / 1:00)
+- `children` / `childNodes`
+- `firstChild` / `firstElementChild`
+- `lastChild` / `lastElementChild`
+- `nextSibling` / `nextElementSibling` and `previousSibling` / `previousElementSibling`
+- `parentNode`
 
-> 20 minutes exercise. 10 minutes review.
+What are these properties? What is the difference between children and child Nodes? What kinds of nodes do you see stored in these properties?
 
-Spend 20 minutes completing [this exercise](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-quotes/tree/jquery).
+Think about these questions and explore the above list of properties. Prepare a demo to showcase how to access these and what the different options tell you.
 
-## Break (10 minutes / 1:10)
+**Changing the Styling**
 
-### Get/Set (10 minutes / 1:20)
+Something we may want to perform in JavaScript is updating or changing the styling of an element using JavaScript. A lot of web animation tools do that and there are tools for React (which we'll learn about later) that do this so you can write all your styles in JavaScript.
 
-Many jQuery methods act as both setters and getters for DOM elements, depending on the number of arguments passed in. A **getter** method will return (or "get") the current value of an attribute or property. Think of a getter method as for *reading* a specified property or attribute.  **Setter** methods are used to *write* (or "set") a specified property or attribute.
+Explore the `style` property of a node. What do you see in there? How could we see the style of an element like, is it `display: block`? Can we change these style properties, like setting the background color?
 
-#### html
+**Content**
 
-The `.html()` method can both retrieve ("get") and change ("set") the HTML contents of a DOM node
-- Get: if no argument is passed into the method, it retrieves the HTML content of the first DOM node in the selected collection
-- Set: if an argument is passed into the method, it will replace the HTML content of all selected DOM nodes with that argument
+We'll sometimes have an element and want to change the text or html contained within that element. This is commonly called *templating* and there are libraries that will make it a little easier. With the new template literal syntax in ES6, we can often get away without a templating library. We could just use the list of properties below to reset the html or text of an element and interpolate data in to it.
 
-```js
-// Get
-var getInner = $('ul').html()
-console.log(getInner)
-```
+Review these properties of a node:
 
-```js
-// Set
-$('ul').html("<li id='blue'>blue</li>")
-```
+- `innerHTML` / `outerHTML`
+- `innerText` / `outerText`
+- `textContent`
 
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+What are they? How are they similar? How are they different?
 
-  ```js
-  // Get
-  document.querySelector('ul').innerHTML
+Create a demo to showcase how you might use these and why they might be useful. Can we change the html inside of an element?
 
-  // Set
-  document.querySelector('ul').innerHTML = "<li class='blue'>Blue</li>"
-  ```
+**Dataset**
 
-</details>
+Part of HTML5 includes the `data-*` attribute: a way for us to attach arbitrary data to an element. If we define a `div` element with a `data-name="A Great Div"` attribute, then our `dataset` property inside our node will be an object with a `name` key holding the string `"A Great Div"`.
 
-#### `text`
+Play around with it. Look up the `data-*` attribute and explore the `dataset` property inside of a node. See how you can create data attributes of your own and retrieve the data they hold from the `dataset` object.
 
-`.text()` is similar to `.html()` except that it will only get / set *text* content (as opposed to HTML content)
-- Get: returns the text content of the selected element(s) as a string
-- Set: sets the text content of the selected element(s) to whatever is passed in as an argument
+**Node Dimensions**
 
-```js
-// Get
-var getText = $('#red').text()
-console.log(getText)
-```
-> Note: unlike `.html()`, if multiple elements are selected, `.text()` will retrieve the text content of *all* of them, not just the first element
+There are a number of use cases where getting the height, width and position of a node are helpful, but the biggest is probable animation.
 
-```js
-// Set
-$('li').text('crimson')
-```
+Explore this list of methods and properties:
 
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
+- `getBoundingClientRect()`
+- `offsetHeight` / `offsetWidth` and `offsetLeft` / `offsetTop`
+- `clientHeight` / `clientWidth` and `clientLeft` / `clientTop`
 
-  ```js
-  // To change the text of the first li
-  document.querySelector('li').textContent = 'crimson'
+What are they? What information do they hold? What's the difference between `offsetHeight` and `clientHeight`? What data do you see in the result of `getBoundingClientRect()`?
 
-  // To change the text of all li's (like `.text()`)
-  let lis = document.querySelectorAll('li')
-  lis.forEach((li) => li.textContent = 'crimson')
-  ```
+## You Do: [JS DOM TOC]() or [JS DOM Slideshow]() (15 min / 2:30)
 
-</details>
 
-#### You Do: Documentation Dive (15 minutes / 1:35)
 
-> 10 minutes exercise. 5 minutes review.
-
-Find a partner, research, and provide an example of getting and setting using the below methods. Be prepared to share your findings with the class.
-
-- `.css()` ([documentation](http://api.jquery.com/css/))
-- `.attr()` ([documentation](http://api.jquery.com/attr/))
-- `.val()` ([documentation](http://api.jquery.com/val/))
-
-<details>
-  <summary><strong>jQuery Solution</strong></summary>
-
-  <strong><code>css</code></strong>
-
-  ```js
-  // Get
-  var bodyBackgroundColor = $('body').css('background-color')
-  console.log(bodyBackgroundColor)
-  ```
-
-  ```js
-  // Set
-  $('body').css('background-color', 'lemonchiffon')
-  ```
-
-  <strong><code>attr</code></strong>
-
-  <code>.attr()</code> is use to get/set the value of HTML attributes
-  - Get: returns the value of an attribute for the first element in the set of matched elements
-  - Set: set the value of an element attribute
-
-  ```js
-  // Get
-  var imgSrc = $('img').attr('src')
-  console.log(imgSrc)
-  ```
-
-  ```js
-  // Set
-  $('img').attr('src','http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
-  ```
-
-  <strong><code>val</code></strong>
-
-  ```html
-  <input type="text" value="Andrew Whitley">
-  ```
-
-  ```js
-  // Get
-  var myName = $('input').val()
-  console.log(myName)
-  ```
-
-  ```js
-  // Set
-  $('input').val('Andy Whitley')
-  ```
-
-</details>
-
-<details>
-  <summary><strong>Vanilla JavaScript Solution</strong></summary>
-
-  ```js
-  // Get CSS Property
-  document.querySelector('body').style.backgroundColor
-
-  // Set CSS Property
-  document.querySelector('body').style.backgroundColor = 'lemonchiffon'
-  ```
-
-  ```js
-  // Get HTML Attribute
-  document.querySelector('img').getAttribute('src')
-
-  // Set HTML Attribute
-  document.querySelector('img').setAttribute('src', 'http://www.clipartlord.com/wp-content/uploads/2014/05/unicorn4.png')
-  ```
-
-  ```js
-  // Get HTML Value
-  document.querySelector('input').value
-
-  // Set HTML Value
-  document.querySelector('input').value = 'Andrew Whitley'
-  ```
-
-</details>
-
-### Adding Content (5 minutes / 1:40)
-
-#### `.append()`
-
-Adds an element to the end of a parent element, making it the last child.
-
-```js
-var blue = $('<li>blue</li>')
-$('ul').append(blue)
-```
-
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  var blue = document.createElement('li')
-  blue.innerHTML = 'blue'
-  document.querySelector('ul').appendChild(blue)
-  ```
-
-</details>
-
-#### `.prepend()`
-
-Adds element to the start of a parent element, making it the first child.
-
-```js
-$('ul').prepend("<li id='blue'>blue</li>")
-```
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  var blue = document.createElement('li')
-  blue.innerHTML = 'blue'
-  var refChild = document.querySelector('ul').children[0]
-  document.querySelector('ul').insertBefore(blue, refChild)
-  ```
-
-</details>
-
-#### You Do: Document Dive (10 minutes / 1:50)
-
-> 5 minutes exercise. 5 minutes review.
-
-Find a partner, research and provide an example for each of the below methods. Be prepared to share your answer.
-
-- `.prependTo()` ([documentation](http://api.jquery.com/prependTo/))
-- `.appendTo()` ([documentation](http://api.jquery.com/appendTo/))
-
-### Removing/Showing/Hiding Content (5 minutes / 1:55)
-
-#### `remove`
-
-Removes element from DOM.
-
-```js
-$('#red').remove()
-```
-
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  document.getElementById('red').remove()
-  ```
-
-</details>
-
-#### `.empty()`
-
-Removes all the child elements of the jQuery object it is called on.
-
-```js
-$('ul').empty()
-```
-
-#### `.hide()`
-
-Changes elements style to have `display: none`
-
-```js
-$('#red').hide()
-```
-
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  document.getElementById('red').style.display = 'none'
-  ```
-
-</details>
-
-#### `.show()`
-
-Changes a `display: none` to `display: block` or whatever it was initially.
-
-```html
-<li id="red" style="display: none;">red</li>
-```
-
-```js
-$('#red').show()
-```
-
-<details>
-  <summary><strong>Vanilla JavaScript syntax</strong></summary>
-
-  ```js
-  document.getElementById('red').style.display = 'initial'
-  ```
-
-</details>
-
-#### You Do: Document Dive (10 minutes / 2:05)
-
-> 5 minutes exercise. 5 minutes review.
-
-For the remaining three methods, find a partner, research and provide an example for each. Be prepared to share your answer.
-
-- `.addClass()` ([documentation](http://api.jquery.com/addClass/))
-- `.removeClass()` ([documentation](http://api.jquery.com/removeClass/))
-- `.toggleClass()` ([documentation](http://api.jquery.com/toggleClass/))
-
-## You Do: Logo Hijack (15 minutes / 2:20)
-
-> 10 minutes exercise. 5 minutes review.
-
-1. Open up the [Microsoft website](https://www.microsoft.com/en-us/) in Chrome or Firefox, and open the console
-2. [Find an image url](https://www.google.com/search?biw=1280&bih=616&tbm=isch&sa=1&q=apple+logo&oq=apple+logo&gs_l=img.3...0.0.0.4212.0.0.0.0.0.0.0.0..0.0....0...1c..64.img..0.0.0.aMLEWJont34) for the apple logo
-3. Store the url to the apple logo in a variable
-4. Find the Microsoft logo using JavaScript and store it in a variable
-5. Modify the source of the logo image so that it's an Apple logo instead
-6. Find the Microsoft search input and store it in a variable
-7. Modify the placeholder of the input so that it says "Search Apple" instead
-
-#### Bonus
-
-Add a new item to the navigation between the image and the search box. It should contain the text "Apple is the new Microsoft".
-
-## `.each`
-
-With jQuery we might want to do something to each element. Say we have 5 paragraph tags in our html...
-
-```html
-<p>Paragraph #1</p>
-<p>Paragraph #2</p>
-<p>Paragraph #3</p>
-<p>Paragraph #4</p>
-<p>Paragraph #5</p>
-```
-
-Say we wanted to add a class to each paragraph. We can do something like this...
-
-```js
-$('p').addClass('pizza')
-```
-
-This add the class of `pizza` to each of the paragraph tags. This is happening through something called "implicit iteration" in jQuery. Under the hood JavaScript is looping through each paragraph tag and adding a class. What if we wanted to log the HTML to the console? We might try this...
-
-```js
-console.log($('p').html())
-```
-
-Hmm, that only gives us the first paragraph's HTML. We need a way to iterate over each of the paragraph tags. Enter `.each`...
-
-```js
-$('p').each(function () {
-  console.log($(this).html())
-})
-```
