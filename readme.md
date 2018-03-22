@@ -104,7 +104,7 @@ The above code snippet returns a NodeList (like an Array) of every element with 
 The `getElementsByTagName` is a hand way of retrieving elements by their html tag (`h1`, `span`, `a`, `li`, etc). `Elements` is plural in the method name, meaning it too returns a list of Nodes.
 
 ```js
-let spanElements = document.getElementsByTagName('span)
+let spanElements = document.getElementsByTagName('span')
 ```
 
 The above snippet returns every `span` element on the page and saves it to the `spanElements` variable.
