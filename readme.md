@@ -109,7 +109,7 @@ let spanElements = document.getElementsByTagName('span')
 
 The above snippet returns every `span` element on the page and saves it to the `spanElements` variable.
 
-### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-practice) (10 min / 0:40)
+### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 0:40)
 
 Open up the practice exercise and work through the prompts in the `getelements.js` file.
 
@@ -155,7 +155,7 @@ let title = document.querySelectorAll('h2')
 
 The above code snippet would return a list of all `h2` elements on the page.
 
-### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-practice) (10 min / 1:05)
+### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 1:05)
 
 Open up the practice exercise and work through the prompts in the `queryselector.js` file.
 
@@ -252,7 +252,4 @@ Explore this list of methods and properties:
 
 What are they? What information do they hold? What's the difference between `offsetHeight` and `clientHeight`? What data do you see in the result of `getBoundingClientRect()`?
 
-## You Do: [JS DOM TOC](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-toc) or [JS DOM Slideshow](https://git.generalassemb.ly/ga-wdi-exercises/js-dom-slideshow.git) (15 min / 2:30)
-
-
-
+## You Do: [JS DOM TOC](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-toc) or [JS DOM Slideshow](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-slideshow) (15 min / 2:30)
