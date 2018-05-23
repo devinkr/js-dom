@@ -10,7 +10,7 @@
 
 ## Framing (10 minutes / 0:10)
 
-In the Objects & Context lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how JavaScript uses objects to represent what you see in the browser.
+In the Objects & Context lesson, you learned about objects as data structures and how we can use them to store data and methods. Today, we will learn about how JavaScript uses objects to represent what you see in the browser. Remember, everything is an object!
 
 The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction), commonly referred to as the "DOM", is a programming interface for HTML. When you load HTML into the browser, it gets converted into a dynamic object-based structure. The [visual representation](https://css-tricks.com/dom/) of this is what you see when you open up Developer Tools in the browser.
 
@@ -61,7 +61,7 @@ Let's look at another example...
 
 Understanding the DOM is central to working in JavaScript. JavaScript uses the DOM to create dynamic HTML. This includes adding new HTML elements and attributes, changing CSS styles in a page, removing existing elements and attributes, and [many more things](https://www.w3schools.com/js/js_htmldom.asp).
 
-It used to be rather difficult to interact with the DOM because different browsers had different methods for doing so. This is what gave way for the rise of [jQuery](http://api.jquery.com/), a JavaScript library intended to make DOM manipulation easier. Nowadays, the DOM API is standardized and we don't really need to worry about using (and learning) an additional library. 
+Most of what you do with client-side javascript is going to revolve around manipulating the DOM.
 
 ## Getting Data from the DOM 
 
@@ -87,7 +87,7 @@ To use the `getElementById` method, we first need to reference the `document` ob
 let titleElement = document.getElementById('title')
 ```
 
-The above code snippet will find the first item on the page with an ID of `title` and return it back to us, to be saved in the variable `titleElement`.
+The above code will start at the document (top of the tree), and look for an element with an id called `title` and save it in the variable `titleElement`
 
 **`getElementsByClassName`**
 
@@ -113,7 +113,7 @@ The above snippet returns every `span` element on the page and saves it to the `
 
 Open up the practice exercise and work through the prompts in the `getelements.js` file.
 
-### `querySelector` (15 min / 0:55)
+### `querySelector` (10 min / 0:50)
 
 There are only two methods in this group: `querySelector` and `querySelectorAll`. In the `getElement(s)By` family of methods, we saw that sometimes `Elements` was plural in the method name and sometimes it was singular, and that's how we knew whether the method returned a single node or a list of nodes. With the `querySelector` family, the clue is also in the name: `querySelector` returns a single node (specifically, the first matching node) whereas `querySelectorAll` returns a list of nodes (specifically, every matching node).
 
@@ -155,22 +155,20 @@ let title = document.querySelectorAll('h2')
 
 The above code snippet would return a list of all `h2` elements on the page.
 
-### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 1:05)
+### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 1:00)
 
 Open up the practice exercise and work through the prompts in the `queryselector.js` file.
 
-## Break (15 min / 1:20)
+## Break (10 min / 1:10)
 
 ## Setting Data in the DOM
 
 Now that we know how to get elements from the DOM, it'd probably be helpful to learn what we can do with them. We'll soon learn about adding event listeners to DOM elements - a way for us to listen for when some event happens to a node (like it gets clicked) and then perform some response. But there are many other things we can do with nodes! Toggle, add or remove classes, change their styling, animate them, move them from one part of the page to another, replace their content with new content, etc. The list goes on!
 
-### Exploring DOM Nodes
+### Exploring DOM Nodes (45 min / 2:00)
+> 20 minutes to research and prepare a demo, 25 minutes to present (5 minutes per group)
 
-### Exploring DOM Nodes (55 min / 2:15)
-> 20 minutes to research and prepare a demo, 35 minutes to present (5 minutes per group)
-
-We're going to count off and break up in to 7 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
+We're going to count off 1-2-3 and break up in to 5 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
 
 **1. Getting and Setting Attributes**
 
@@ -214,13 +212,7 @@ What are these properties? What is the difference between children and child Nod
 
 Think about these questions and explore the above list of properties. Prepare a demo to showcase how to access these and what the different options tell you.
 
-**4. Changing the Styling**
-
-Something we may want to perform in JavaScript is updating or changing the styling of an element using JavaScript. A lot of web animation tools do that and there are tools for React (which we'll learn about later) that do this so you can write all your styles in JavaScript.
-
-Explore the `style` property of a node. What do you see in there? How could we see the style of an element like, is it `display: block`? Can we change these style properties, like setting the background color?
-
-**5. Content**
+**4. Content**
 
 We'll sometimes have an element and want to change the text or html contained within that element. This is commonly called *templating* and there are libraries that will make it a little easier. With the new template literal syntax in ES6, we can often get away without a templating library. We could just use the list of properties below to reset the html or text of an element and interpolate data in to it.
 
@@ -234,11 +226,19 @@ What are they? How are they similar? How are they different?
 
 Create a demo to showcase how you might use these and why they might be useful. Can we change the html inside of an element?
 
-**6. Dataset**
+**5. Dataset**
 
 Part of HTML5 includes the `data-*` attribute: a way for us to attach arbitrary data to an element. If we define a `div` element with a `data-name="A Great Div"` attribute, then our `dataset` property inside our node will be an object with a `name` key holding the string `"A Great Div"`.
 
 Play around with it. Look up the `data-*` attribute and explore the `dataset` property inside of a node. See how you can create data attributes of your own and retrieve the data they hold from the `dataset` object.
+
+**extras:**
+
+**6. Changing the Styling**
+
+Something we may want to perform in JavaScript is updating or changing the styling of an element using JavaScript. A lot of web animation tools do that and there are tools for React (which we'll learn about later) that do this so you can write all your styles in JavaScript.
+
+Explore the `style` property of a node. What do you see in there? How could we see the style of an element like, is it `display: block`? Can we change these style properties, like setting the background color?
 
 **7. Node Dimensions**
 
@@ -252,4 +252,10 @@ Explore this list of methods and properties:
 
 What are they? What information do they hold? What's the difference between `offsetHeight` and `clientHeight`? What data do you see in the result of `getBoundingClientRect()`?
 
-## You Do: [JS DOM TOC](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-toc) or [JS DOM Slideshow](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-slideshow) (15 min / 2:30)
+## You Do: Practice! (30 min / 2:30)
+
+Choose between these two exercises and work on them for the rest of the class period.
+
+[JS DOM TOC](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-toc) - build a table of contents using things we've learned today.
+
+[JS DOM Slideshow](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-slideshow) - build a slideshow! A bit harder than the TOC, but has a more thorough walkthrough.
