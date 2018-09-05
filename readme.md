@@ -111,13 +111,13 @@ The above snippet returns every `span` element on the page and saves it to the `
 
 ### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 0:40)
 
-Open up the practice exercise and work through the prompts in the `getelements.js` file.
+Clone down and open the practice exercise and work through the prompts in the `getelements.js` file.
 
 ### `querySelector` (10 min / 0:50)
 
-There are only two methods in this group: `querySelector` and `querySelectorAll`. In the `getElement(s)By` family of methods, we saw that sometimes `Elements` was plural in the method name and sometimes it was singular, and that's how we knew whether the method returned a single node or a list of nodes. With the `querySelector` family, the clue is also in the name: `querySelector` returns a single node (specifically, the first matching node) whereas `querySelectorAll` returns a list of nodes (specifically, every matching node).
+There are only two methods in this group: `querySelector` and `querySelectorAll`. Unlike the `getElement(s)By` group, these are simpler to understand - querySelector returns a single value, and querySelectorAll returns...well...everything that it can find. You can even select multiple IDs this way.
 
-We'll walk through both `querySelector` and `querySelector` all, but first a note about selectors:
+We'll walk through both `querySelector` and `querySelectorAll`, but first a note about selectors:
 
 #### Selectors
 
@@ -168,7 +168,7 @@ Now that we know how to get elements from the DOM, it'd probably be helpful to l
 ### Exploring DOM Nodes (45 min / 2:00)
 > 20 minutes to research and prepare a demo, 25 minutes to present (5 minutes per group)
 
-We're going to count off 1-2-3 and break up in to 5 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
+We're going to count off and break up in to 5 groups. Each group will be responsible for one of the topic areas below. Your goal is to research this topic area as a group and come up with a demo of how you would use it and why it might be helpful or important. We'll then go around the room and demo what we find!
 
 **1. Getting and Setting Attributes**
 
