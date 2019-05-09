@@ -75,7 +75,7 @@ the tree structure.
 
 Let's look at another example...
 
-![DOM Tree Relationships](http://profsamscott.com/javascript/images/helloworldtree.jpg)
+![DOM Tree Relationships](https://profsamscott.com/javascript/images/helloworldtree.jpg)
 
 ## Basics of Working with the DOM (5 min / 0:15)
 
@@ -112,7 +112,7 @@ object (where the method lives). Then, we pass in a string that matches the ID
 of an element in our HTML
 
 ```js
-let titleElement = document.getElementById("title")
+let titleElement = document.getElementById("title");
 ```
 
 The above code will start at the document (top of the tree), and look for an
@@ -124,7 +124,7 @@ The `getElementById` method returns a single Node item; the
 `getElementsByClassName` returns a NodeList, which is like an Array of Nodes.
 
 ```js
-let paragraphElements = document.getElementsByClassName("paragraph")
+let paragraphElements = document.getElementsByClassName("paragraph");
 ```
 
 The above code snippet returns a NodeList (like an Array) of every element with
@@ -140,7 +140,7 @@ tag (`h1`, `span`, `a`, `li`, etc). `Elements` is plural in the method name,
 meaning it too returns a list of Nodes.
 
 ```js
-let spanElements = document.getElementsByTagName("span")
+let spanElements = document.getElementsByTagName("span");
 ```
 
 The above snippet returns every `span` element on the page and saves it to the
@@ -190,7 +190,7 @@ retrieve from the DOM. The element that we get back will be the first element
 that matches that selector.
 
 ```js
-let title = document.querySelector(".title")
+let title = document.querySelector(".title");
 ```
 
 We'll only get one element back and it will always be the first element that
@@ -204,7 +204,7 @@ With `querySelectorAll`, we'll get back all elements on the page that match the
 selector we pass in.
 
 ```js
-let title = document.querySelectorAll("h2")
+let title = document.querySelectorAll("h2");
 ```
 
 The above code snippet would return a list of all `h2` elements on the page.
@@ -326,8 +326,7 @@ will be an object with a `name` key holding the string `"A Great Div"`.
 ```html
 <div id="great" data-name="A Great Div"></div>
 
-let div = document.getElementById('great')
-console.log(div.dataset)
+let div = document.getElementById('great') console.log(div.dataset)
 ```
 
 Play around with it. Look up the `data-*` attribute and explore the `dataset`
