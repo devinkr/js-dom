@@ -372,9 +372,9 @@ What are they? What information do they hold? What's the difference between
 Choose between these two exercises and work on them for the rest of the class
 period.
 
-[JS DOM TOC](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-toc) -
+[JS DOM TOC](https://git.generalassemb.ly/seir-129/js-dom-toc) -
 build a table of contents using things we've learned today.
 
-[JS DOM Slideshow](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-slideshow) -
+[JS DOM Slideshow](https://git.generalassemb.ly/seir-129/js-dom-slideshow) -
 build a slideshow! A bit harder than the TOC, but has a more thorough
 walkthrough.
