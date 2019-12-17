@@ -146,7 +146,7 @@ let spanElements = document.getElementsByTagName("span");
 The above snippet returns every `span` element on the page and saves it to the
 `spanElements` variable.
 
-### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/dc-wdi-fundamentals/js-dom-practice) (10 min / 0:40)
+### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/seir-129/js-dom-practice) (10 min / 0:40)
 
 Clone down and open the practice exercise and work through the prompts in the
 `getelements.js` file.
