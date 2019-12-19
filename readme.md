@@ -366,15 +366,3 @@ Explore this list of methods and properties:
 What are they? What information do they hold? What's the difference between
 `offsetHeight` and `clientHeight`? What data do you see in the result of
 `getBoundingClientRect()`?
-
-## You Do: Practice! (30 min / 2:30)
-
-Choose between these two exercises and work on them for the rest of the class
-period.
-
-[JS DOM TOC](https://git.generalassemb.ly/seir-129/js-dom-toc) -
-build a table of contents using things we've learned today.
-
-[JS DOM Slideshow](https://git.generalassemb.ly/seir-129/js-dom-slideshow) -
-build a slideshow! A bit harder than the TOC, but has a more thorough
-walkthrough.
