@@ -351,18 +351,3 @@ can write all your styles in JavaScript.
 Explore the `style` property of a node. What do you see in there? How could we
 see the style of an element like, is it `display: block`? Can we change these
 style properties, like setting the background color?
-
-**7. Node Dimensions**
-
-There are a number of use cases where getting the height, width and position of
-a node are helpful, but the biggest is probable animation.
-
-Explore this list of methods and properties:
-
-- `getBoundingClientRect()`
-- `offsetHeight` / `offsetWidth` and `offsetLeft` / `offsetTop`
-- `clientHeight` / `clientWidth` and `clientLeft` / `clientTop`
-
-What are they? What information do they hold? What's the difference between
-`offsetHeight` and `clientHeight`? What data do you see in the result of
-`getBoundingClientRect()`?
