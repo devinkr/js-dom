@@ -146,7 +146,7 @@ let spanElements = document.getElementsByTagName("span");
 The above snippet returns every `span` element on the page and saves it to the
 `spanElements` variable.
 
-### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/seir-129/js-dom-practice) (10 min / 0:40)
+### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/seir-323/js-dom-practice) (10 min / 0:40)
 
 Clone down and open the practice exercise and work through the prompts in the
 `getelements.js` file.
@@ -209,7 +209,7 @@ let title = document.querySelectorAll("h2");
 
 The above code snippet would return a list of all `h2` elements on the page.
 
-### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/seir-129/js-dom-practice) (10 min / 1:00)
+### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/seir-323/js-dom-practice) (10 min / 1:00)
 
 Open up the practice exercise and work through the prompts in the
 `queryselector.js` file.
@@ -227,15 +227,6 @@ styling, animate them, move them from one part of the page to another, replace
 their content with new content, etc. The list goes on!
 
 ### Exploring DOM Nodes (45 min / 2:00)
-
-> 20 minutes to research and prepare a demo, 25 minutes to present (5 minutes
-> per group)
-
-We're going to count off and break up in to 5 groups. Each group will be
-responsible for one of the topic areas below. Your goal is to research this
-topic area as a group and come up with a demo of how you would use it and why it
-might be helpful or important. We'll then go around the room and demo what we
-find!
 
 **1. Getting and Setting Attributes**
 
