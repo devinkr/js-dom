@@ -256,7 +256,7 @@ class a navigation element when someone clicks on a hamburger menu.
 
 The way we get and set classes on nodes is with the `classList` API. Every node
 has a `classList` property and there are methods we can use to add a class
-(`addClass`), remove a class (`removeClass`) or toggle a class (`toggleClass`).
+(`add`), remove a class (`remove`) or toggle a class (`toggle`).
 
 Research these methods and think about how they work and why they're useful.
 Prepare a demo to showcase the following:
