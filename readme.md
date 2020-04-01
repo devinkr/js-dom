@@ -146,11 +146,6 @@ let spanElements = document.getElementsByTagName("span");
 The above snippet returns every `span` element on the page and saves it to the
 `spanElements` variable.
 
-### You Do: [JS DOM Practice Part 1](https://git.generalassemb.ly/seir-323/js-dom-practice) (10 min / 0:40)
-
-Clone down and open the practice exercise and work through the prompts in the
-`getelements.js` file.
-
 ### `querySelector` (10 min / 0:50)
 
 There are only two methods in this group: `querySelector` and
@@ -208,13 +203,6 @@ let title = document.querySelectorAll("h2");
 ```
 
 The above code snippet would return a list of all `h2` elements on the page.
-
-### You Do: [JS DOM Practice Part 2](https://git.generalassemb.ly/seir-323/js-dom-practice) (10 min / 1:00)
-
-Open up the practice exercise and work through the prompts in the
-`queryselector.js` file.
-
-## Break (10 min / 1:10)
 
 ## Setting Data in the DOM
 
@@ -342,3 +330,7 @@ can write all your styles in JavaScript.
 Explore the `style` property of a node. What do you see in there? How could we
 see the style of an element like, is it `display: block`? Can we change these
 style properties, like setting the background color?
+
+
+### You Do: [JS DOM Mini Lab](https://git.generalassemb.ly/seir-323/js-dom-practice)
+Clone down and open the practice exercise and work through the prompts in the js files.
