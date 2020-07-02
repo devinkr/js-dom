@@ -73,10 +73,6 @@ two `div` elements contained inside it, which are called child nodes. The two
 divs are also "siblings" to one another because they are on the same level in
 the tree structure.
 
-Let's look at another example...
-
-![DOM Tree Relationships](https://profsamscott.com/javascript/images/helloworldtree.jpg)
-
 ## Basics of Working with the DOM (5 min / 0:15)
 
 Understanding the DOM is central to working in JavaScript. JavaScript uses the
