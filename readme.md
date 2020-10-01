@@ -331,5 +331,5 @@ see the style of an element like, is it `display: block`? Can we change these
 style properties, like setting the background color?
 
 
-### You Do: [JS DOM Mini Lab](https://git.generalassemb.ly/seir-323/js-dom-practice)
+### You Do: [JS DOM Mini Lab](https://git.generalassemb.ly/sei-921/js-dom-practice)
 Clone down and open the practice exercise and work through the prompts in the js files.
