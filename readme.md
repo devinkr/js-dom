@@ -227,8 +227,7 @@ Every node object has an `attributes` property where it lists it's attributes
 `setAttribute` method.
 
 Look at the `attributes` property of a node. Also look up the `getAttribute` and
-`setAttribute` methods and how they work. Prepare a demo to showcase these. Your
-demo should show the following:
+`setAttribute` methods and how they work. 
 
 - What is an attribute?
 - How do we access the list of attributes on a node?
@@ -246,7 +245,7 @@ has a `classList` property and there are methods we can use to add a class
 (`add`), remove a class (`remove`) or toggle a class (`toggle`).
 
 Research these methods and think about how they work and why they're useful.
-Prepare a demo to showcase the following:
+
 
 - How can we see the list of classes a node has?
 - How can we check to see if a node has a class?
@@ -271,8 +270,7 @@ Look through a node object (by console logging) and see if you can find the foll
 What are these properties? What is the difference between children and child
 Nodes? What kinds of nodes do you see stored in these properties?
 
-Think about these questions and explore the above list of properties. Prepare a
-demo to showcase how to access these and what the different options tell you.
+Think about these questions and explore the above list of properties.
 
 **4. Content**
 
@@ -291,7 +289,6 @@ Review these properties of a node:
 
 What are they? How are they similar? How are they different?
 
-Create a demo to showcase how you might use these and why they might be useful.
 Can we change the html inside of an element?
 
 **5. Dataset**
