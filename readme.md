@@ -13,10 +13,10 @@
 
 ## Framing (10 minutes / 0:10)
 
-In the Objects & Context lesson, you learned about objects as data structures
+In the Objects lesson, you learned about objects as data structures
 and how we can use them to store data and methods. Today, we will learn about
 how JavaScript uses objects to represent what you see in the browser. Remember,
-everything is an object!
+almost everything is an object in Javascript!
 
 The
 [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction),
@@ -260,7 +260,7 @@ siblings. Luckily, each node has this information stored within it!
 
 Look through a node object (by console logging) and see if you can find the following:
 
-- `children` / `childNodes`
+- `childNodes` / `children` 
 - `firstChild` / `firstElementChild`
 - `lastChild` / `lastElementChild`
 - `nextSibling` / `nextElementSibling` and `previousSibling` /
@@ -284,12 +284,12 @@ interpolate data in to it.
 Review these properties of a node:
 
 - `innerHTML` / `outerHTML`
-- `innerText` / `outerText`
+- `innerText`
 - `textContent`
 
-What are they? How are they similar? How are they different?
+How are innerHTML and outerHTML similar and different? How did you find out their similarities and differences?
 
-Can we change the html inside of an element?
+What is the difference between innerHTML, innerText, and textContent? Which of these three can be dangerous and potentionally allow for attacks?
 
 **5. Dataset**
 
@@ -314,6 +314,8 @@ What happens if you have a property with a name like this?
 <div id="great" data-camel-case-is-fun="i agree"></div>
 ```
 
+[More information about data atrributes](https://css-tricks.com/a-complete-guide-to-data-attributes/)
+
 **extras:**
 
 **6. Changing the Styling**
@@ -327,6 +329,18 @@ Explore the `style` property of a node. What do you see in there? How could we
 see the style of an element like, is it `display: block`? Can we change these
 style properties, like setting the background color?
 
+**7. Adding a New Node**
 
-### You Do: [JS DOM Mini Lab](https://git.generalassemb.ly/sei-921/js-dom-practice)
+Sometimes you might want to create a new element and add it to your document.
+
+```js
+const newNavLink = document.createElement('li');
+newNavLink.textContent = 'New Page';
+newNavLink.classList.add('primary-nav-item');
+
+const primaryNavUl = document.querySelector('.primary-nav-ul');
+primaryNavUl.appendChild(newNavLink);
+```
+
+### You Do: [JS DOM Mini Lab](../../../js-dom-practice)
 Clone down and open the practice exercise and work through the prompts in the js files.
